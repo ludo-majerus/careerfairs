@@ -1,4 +1,28 @@
 Careerfairs::Application.routes.draw do
+  resources :jobseekers
+
+  resources :job_details
+
+  resources :event_details
+
+  resources :sites
+
+  resources :subscribers
+
+  resources :events
+
+  resources :companytoevent_details
+
+  resources :badges
+
+  resources :stands
+
+  resources :companytoevents
+
+  resources :jobs
+
+  resources :companies
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +72,7 @@ Careerfairs::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'jobseekers#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,0 +1,25 @@
+<%= form_for(@jobseeker) do |f| %>
+  <% if @jobseeker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@jobseeker.errors.count, "error") %> prohibited this jobseeker from being saved:</h2>
+
+      <ul>
+      <% @jobseeker.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :userDID %><br />
+    <%= f.text_field :userDID %>
+  </div>
+  <div class="field">
+    <%= f.label :userEmail %><br />
+    <%= f.text_field :userEmail %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

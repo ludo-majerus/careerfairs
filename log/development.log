@@ -62,3 +62,2400 @@ Started GET "/rails/info/properties" for 127.0.0.1 at 2012-11-16 15:01:18 +0100
 Processing by Rails::InfoController#properties as */*
   Rendered inline template (1.2ms)
 Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2012-11-17 09:50:06 +0100
+Served asset /rails.png - 200 OK (9ms)
+
+
+Started GET "/Event" for 127.0.0.1 at 2012-11-17 09:50:10 +0100
+
+ActionController::RoutingError (No route matches [GET] "/Event"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (7.3ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2012-11-17 09:50:33 +0100
+Processing by CompaniesController#index as HTML
+Completed 500 Internal Server Error in 170ms
+
+ActiveRecord::StatementInvalid (Could not find table 'companies'):
+  app/controllers/companies_controller.rb:5:in `index'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.9ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.9ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateCompanies (20121116143701)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "login" varchar(255), "password" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121116143701')[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to CreateJobs (20121116144141)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "companytoevent_id" integer, "title" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121116144141')[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to CreateCompanytoevents (20121116144212)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "companytoevents" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "company_id" integer, "event_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121116144212')[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to CreateStands (20121116144755)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "stands" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "companytoevent_id" integer, "name" varchar(255), "size" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121116144755')[0m
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateBadges (20121116144816)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "badges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "companytoevent_id" integer, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121116144816')[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to CreateCompanytoeventDetails (20121116144856)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "companytoevent_details" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "companytoevent_id" integer, "key" varchar(255), "value" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121116144856')[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+Migrating to CreateEvents (20121117084745)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer, "date" date, "hour_begin" varchar(255), "hour_end" varchar(255), "location" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121117084745')[0m
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateSubscribers (20121117084813)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "subscribers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "event_id" integer, "status" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121117084813')[0m
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateSites (20121117084854)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "sites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "url" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121117084854')[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to CreateEventDetails (20121117084915)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "event_details" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "event_id" integer, "key" varchar(255), "value" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121117084915')[0m
+  [1m[35m (1.2ms)[0m  commit transaction
+Migrating to CreateJobDetails (20121117084947)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "job_details" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" integer, "key" varchar(255), "value" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121117084947')[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.4ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("badges")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("companies")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("companytoevent_details")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("companytoevents")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("event_details")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("events")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("job_details")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("jobs")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("sites")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("stands")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("subscribers")[0m
+
+
+Started GET "/companies" for 127.0.0.1 at 2012-11-17 09:50:46 +0100
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.1ms)[0m  SELECT "companies".* FROM "companies" 
+  Rendered companies/index.html.erb within layouts/application (3.3ms)
+Compiled badges.css  (23ms)  (pid 91136)
+Compiled companies.css  (1ms)  (pid 91136)
+Compiled companytoevent_details.css  (2ms)  (pid 91136)
+Compiled companytoevents.css  (3ms)  (pid 91136)
+Compiled event_details.css  (2ms)  (pid 91136)
+Compiled events.css  (2ms)  (pid 91136)
+Compiled job_details.css  (2ms)  (pid 91136)
+Compiled jobs.css  (1ms)  (pid 91136)
+Compiled scaffolds.css  (25ms)  (pid 91136)
+Compiled sites.css  (3ms)  (pid 91136)
+Compiled stands.css  (2ms)  (pid 91136)
+Compiled subscribers.css  (2ms)  (pid 91136)
+Compiled application.css  (276ms)  (pid 91136)
+Compiled jquery.js  (8ms)  (pid 91136)
+Compiled jquery_ujs.js  (1ms)  (pid 91136)
+Compiled badges.js  (125ms)  (pid 91136)
+Compiled companies.js  (70ms)  (pid 91136)
+Compiled companytoevent_details.js  (73ms)  (pid 91136)
+Compiled companytoevents.js  (108ms)  (pid 91136)
+Compiled event_details.js  (72ms)  (pid 91136)
+Compiled events.js  (74ms)  (pid 91136)
+Compiled job_details.js  (72ms)  (pid 91136)
+Compiled jobs.js  (70ms)  (pid 91136)
+Compiled sites.js  (104ms)  (pid 91136)
+Compiled stands.js  (72ms)  (pid 91136)
+Compiled subscribers.js  (73ms)  (pid 91136)
+Compiled application.js  (1096ms)  (pid 91136)
+Completed 200 OK in 1725ms (Views: 1720.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /companies.css - 200 OK (5ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /badges.css - 200 OK (2ms)
+
+
+Started GET "/assets/companytoevents.css?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /companytoevents.css - 200 OK (2ms)
+
+
+Started GET "/assets/companytoevent_details.css?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /companytoevent_details.css - 200 OK (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /application.css - 200 OK (16ms)
+
+
+Started GET "/assets/event_details.css?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /event_details.css - 200 OK (2ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /events.css - 200 OK (4ms)
+
+
+Started GET "/assets/job_details.css?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /job_details.css - 200 OK (2ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /jobs.css - 200 OK (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /scaffolds.css - 200 OK (2ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /sites.css - 200 OK (2ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /stands.css - 200 OK (2ms)
+
+
+Started GET "/assets/subscribers.css?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /subscribers.css - 200 OK (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /jquery.js - 200 OK (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /badges.js - 200 OK (2ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /companies.js - 200 OK (5ms)
+
+
+Started GET "/assets/companytoevent_details.js?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /companytoevent_details.js - 200 OK (3ms)
+
+
+Started GET "/assets/companytoevents.js?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /companytoevents.js - 200 OK (8ms)
+
+
+Started GET "/assets/event_details.js?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /event_details.js - 200 OK (6ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /events.js - 200 OK (1ms)
+
+
+Started GET "/assets/job_details.js?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /job_details.js - 200 OK (2ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /jobs.js - 200 OK (2ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /sites.js - 200 OK (1ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /stands.js - 200 OK (1ms)
+
+
+Started GET "/assets/subscribers.js?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /subscribers.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-17 09:50:48 +0100
+Served asset /application.js - 200 OK (17ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2012-11-17 09:52:50 +0100
+Served asset /rails.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" [0m
+  Rendered events/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 25ms (Views: 21.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/companytoevent_details.css?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /companytoevent_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /badges.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /companies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.css?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /companytoevents.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.css?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /event_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.css?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /job_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /sites.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.css?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /subscribers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /stands.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /badges.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /companies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.js?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /companytoevent_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.js?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /companytoevents.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.js?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /event_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.js?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /job_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /sites.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /stands.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.js?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /subscribers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-17 09:53:01 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (26.4ms)
+  Rendered events/new.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 64ms (Views: 53.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /badges.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /companies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.css?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /companytoevent_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.css?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /event_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.css?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /companytoevents.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.css?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /job_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /stands.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /sites.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.css?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /subscribers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /badges.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /companies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.js?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /companytoevent_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.js?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /companytoevents.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.js?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /event_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.js?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /job_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /sites.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /stands.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.js?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /subscribers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-17 09:55:35 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2012-11-17 10:02:33 +0100
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (41.4ms)
+  Rendered events/new.html.erb within layouts/application (42.2ms)
+Completed 500 Internal Server Error in 58ms
+
+ActionView::Template::Error (undefined method `hour_select' for #<ActionView::Helpers::FormBuilder:0x007fa6f3a5bb70>):
+    21:   </div>
+    22:   <div class="field">
+    23:     <%= f.label :hour_begin %><br />
+    24:     <%= f.hour_select :hour_begin %>
+    25:   </div>
+    26:   <div class="field">
+    27:     <%= f.label :hour_end %><br />
+  app/views/events/_form.html.erb:24:in `block in _app_views_events__form_html_erb___1311717010269636468_70177513961260'
+  app/views/events/_form.html.erb:1:in `_app_views_events__form_html_erb___1311717010269636468_70177513961260'
+  app/views/events/new.html.erb:3:in `_app_views_events_new_html_erb__33811537727927649_70177498866480'
+  app/controllers/events_controller.rb:29:in `new'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.8ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.1ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2012-11-17 10:03:15 +0100
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (67.5ms)
+  Rendered events/new.html.erb within layouts/application (68.4ms)
+Completed 500 Internal Server Error in 71ms
+
+ActionView::Template::Error (undefined method `hour_select' for #<ActionView::Helpers::FormBuilder:0x007fa6f1d4f068>):
+    21:   </div>
+    22:   <div class="field">
+    23:     <%= f.label :hour_begin %><br />
+    24:     <%= f.hour_select :hour_begin %>
+    25:   </div>
+    26:   <div class="field">
+    27:     <%= f.label :hour_end %><br />
+  app/views/events/_form.html.erb:24:in `block in _app_views_events__form_html_erb___1311717010269636468_70177499247340'
+  app/views/events/_form.html.erb:1:in `_app_views_events__form_html_erb___1311717010269636468_70177499247340'
+  app/views/events/new.html.erb:3:in `_app_views_events_new_html_erb__33811537727927649_70177498866480'
+  app/controllers/events_controller.rb:29:in `new'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.2ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.8ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (14.7ms)
+  Rendered events/new.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 35ms (Views: 34.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/companytoevent_details.css?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /companytoevent_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.css?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /companytoevents.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.css?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /event_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /companies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /badges.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.css?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /job_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /sites.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /stands.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.css?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /subscribers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /badges.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /companies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.js?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /companytoevent_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.js?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /companytoevents.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.js?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /event_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.js?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /job_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /sites.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.js?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /subscribers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /stands.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-17 10:04:33 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (4.6ms)[0m  SELECT "events".* FROM "events" 
+  Rendered events/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 66ms (Views: 47.4ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/assets/companytoevent_details.css?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /companytoevent_details.css - 200 OK (0ms)
+
+
+Started GET "/assets/event_details.css?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /event_details.css - 200 OK (0ms)
+
+
+Started GET "/assets/companytoevents.css?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /companytoevents.css - 200 OK (0ms)
+
+
+Started GET "/assets/subscribers.css?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /subscribers.css - 200 OK (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /events.css - 200 OK (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /jobs.css - 200 OK (0ms)
+
+
+Started GET "/assets/job_details.css?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /job_details.css - 200 OK (0ms)
+
+
+Started GET "/assets/companytoevent_details.js?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /companytoevent_details.js - 200 OK (0ms)
+
+
+Started GET "/assets/companytoevents.js?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /companytoevents.js - 200 OK (0ms)
+
+
+Started GET "/assets/event_details.js?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /event_details.js - 200 OK (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /events.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/job_details.js?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /job_details.js - 200 OK (0ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /jobs.js - 200 OK (0ms)
+
+
+Started GET "/assets/subscribers.js?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /subscribers.js - 200 OK (0ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /badges.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /companies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /stands.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /sites.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /badges.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /companies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /sites.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /stands.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-19 11:57:05 +0100
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 16:56:01 +0100
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.5ms)[0m  [1mSELECT "events".* FROM "events" [0m
+  Rendered events/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 44ms (Views: 34.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /badges.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.css?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /job_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /companies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.css?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /companytoevent_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.css?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /companytoevents.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.css?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /event_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /stands.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /sites.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.css?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /subscribers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /badges.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /companies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.js?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /job_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.js?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /companytoevent_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.js?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /subscribers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.js?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /event_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /sites.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /stands.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/companytoevents.js?body=1" for 127.0.0.1 at 2012-11-20 16:56:02 +0100
+Served asset /companytoevents.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 16:56:26 +0100
+
+LoadError (Expected /Users/lmajerus/Heroku/careerfairs/app/controllers/jobseekers_controller.rb to define JobseekersController):
+  activesupport (3.2.8) lib/active_support/dependencies.rb:503:in `load_missing_constant'
+  activesupport (3.2.8) lib/active_support/dependencies.rb:192:in `block in const_missing'
+  activesupport (3.2.8) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.8) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.8) lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  activesupport (3.2.8) lib/active_support/inflector/methods.rb:229:in `each'
+  activesupport (3.2.8) lib/active_support/inflector/methods.rb:229:in `constantize'
+  activesupport (3.2.8) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.8) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.8) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.8) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.8) lib/action_dispatch/routing/route_set.rb:600:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.1) lib/rack/etag.rb:23:in `call'
+  rack (1.4.1) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:205:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/cookies.rb:339:in `call'
+  activerecord (3.2.8) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:473:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:405:in `_run__7499238665900793__call__4059226707580921904__callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.8) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 16:57:19 +0100
+
+ActionController::RoutingError (uninitialized constant Jobseeker::HTTParty):
+  app/models/jobseeker.rb:2:in `<class:Jobseeker>'
+  app/models/jobseeker.rb:1:in `<top (required)>'
+  app/controllers/jobseekers_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 16:57:38 +0100
+Connecting to database specified by database.yml
+Processing by JobseekersController#index as HTML
+  Rendered jobseekers/index.html.erb within layouts/application (11.1ms)
+Completed 500 Internal Server Error in 51ms
+
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::Twitter):
+    1: <%
+    2: 	twitter = Twitter.new(config['email'], config['password'])
+    3: 	pp twitter.timeline
+    4: %>
+  app/views/jobseekers/index.html.erb:2:in `_app_views_jobseekers_index_html_erb___4116822765151340993_70280466872580'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 16:58:33 +0100
+Processing by JobseekersController#index as HTML
+  Rendered jobseekers/index.html.erb within layouts/application (652.8ms)
+Completed 500 Internal Server Error in 655ms
+
+ActionView::Template::Error (undefined method `pp' for #<#<Class:0x007fd6e7624c18>:0x007fd6e7569e90>):
+    1: <%
+    2: 	twitter = Jobseeker.new('hellodelu@gmail.com', 'Berlu1')
+    3: 	pp twitter.timeline
+    4: %>
+  app/views/jobseekers/index.html.erb:3:in `_app_views_jobseekers_index_html_erb___4116822765151340993_70280490468840'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 16:59:03 +0100
+Processing by JobseekersController#index as HTML
+  Rendered jobseekers/index.html.erb within layouts/application (447.3ms)
+Completed 200 OK in 640ms (Views: 639.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /application.css - 304 Not Modified (64ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /companies.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/companytoevents.css?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /companytoevents.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/companytoevent_details.css?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /companytoevent_details.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /badges.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/event_details.css?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /event_details.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /events.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/job_details.css?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /job_details.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /jobs.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /sites.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /stands.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /jquery.js - 304 Not Modified (36ms)
+
+
+Started GET "/assets/subscribers.css?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /subscribers.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /badges.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /companies.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/companytoevent_details.js?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /companytoevent_details.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/companytoevents.js?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /companytoevents.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/event_details.js?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /event_details.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/job_details.js?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /job_details.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /events.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /jobs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /sites.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /stands.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/subscribers.js?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /subscribers.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 16:59:04 +0100
+Served asset /application.js - 304 Not Modified (38ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 18:41:21 +0100
+Processing by JobseekersController#index as HTML
+  Rendered jobseekers/index.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (undefined method `timeline' for #<Jobseeker:0x007fd6e7719588>):
+    1: <% twitter = Jobseeker.new('hellodelu@gmail.com', 'Berlu1') %>
+    2: <%= twitter.timeline %>
+  app/views/jobseekers/index.html.erb:2:in `_app_views_jobseekers_index_html_erb___4116822765151340993_70280490807520'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.6ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.2ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (26.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Processing by JobseekersController#index as HTML
+  Rendered jobseekers/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 29ms (Views: 28.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /companies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /badges.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.css?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /companytoevents.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.css?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /companytoevent_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.css?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /event_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.css?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /job_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.js?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /companytoevents.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.js?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /job_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /sites.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /stands.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.css?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /subscribers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /badges.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /companies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.js?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /event_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.js?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /companytoevent_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /sites.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /stands.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/subscribers.js?body=1" for 127.0.0.1 at 2012-11-20 18:41:34 +0100
+Served asset /subscribers.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 18:42:26 +0100
+Processing by JobseekersController#index as HTML
+  Rendered jobseekers/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 39ms (Views: 38.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /companies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/companytoevents.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /companytoevents.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /companytoevent_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /badges.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /event_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /job_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /sites.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /stands.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /subscribers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /badges.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /companytoevent_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /companytoevents.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /companies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /event_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /job_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /events.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /sites.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /stands.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /subscribers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:27 +0100
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Processing by JobseekersController#index as HTML
+  Rendered jobseekers/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 38ms (Views: 38.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /companies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /companytoevent_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /badges.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /companytoevents.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /event_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /job_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /sites.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /stands.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.css?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /subscribers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /badges.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /companies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /companytoevent_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /companytoevents.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /event_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /job_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /sites.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /stands.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /subscribers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 18:42:28 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 18:43:51 +0100
+Processing by JobseekersController#index as HTML
+  Rendered jobseekers/index.html.erb within layouts/application (9.6ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined local variable or method `categories' for #<#<Class:0x007fd6e742a1b0>:0x007fd6e61def10>):
+    1: <%= categories %>
+  app/views/jobseekers/index.html.erb:1:in `_app_views_jobseekers_index_html_erb___4116822765151340993_70280480222940'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.5ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.2ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (18.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 18:45:16 +0100
+
+ArgumentError (wrong number of arguments (0 for 2)):
+  app/controllers/jobseekers_controller.rb:11:in `initialize'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.8ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.7ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 18:45:28 +0100
+Processing by JobseekersController#index as HTML
+  Rendered jobseekers/index.html.erb within layouts/application (9.7ms)
+Completed 500 Internal Server Error in 713ms
+
+ActionView::Template::Error (undefined local variable or method `categories' for #<#<Class:0x007fd6e76f5980>:0x007fd6e6241958>):
+    1: <%= categories %>
+  app/views/jobseekers/index.html.erb:1:in `_app_views_jobseekers_index_html_erb___4116822765151340993_70280480222940'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 18:45:39 +0100
+
+SyntaxError (/Users/lmajerus/Heroku/careerfairs/app/controllers/jobseekers_controller.rb:11: syntax error, unexpected '=', expecting keyword_end
+    :categories = self.class.get("/v1/categori...
+                 ^):
+  activesupport (3.2.8) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.8) lib/active_support/dependencies.rb:469:in `block in load_file'
+  activesupport (3.2.8) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.8) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.8) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.8) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.8) lib/active_support/dependencies.rb:192:in `block in const_missing'
+  activesupport (3.2.8) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.8) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.8) lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  activesupport (3.2.8) lib/active_support/inflector/methods.rb:229:in `each'
+  activesupport (3.2.8) lib/active_support/inflector/methods.rb:229:in `constantize'
+  activesupport (3.2.8) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.8) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.8) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.8) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.8) lib/action_dispatch/routing/route_set.rb:600:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.1) lib/rack/etag.rb:23:in `call'
+  rack (1.4.1) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:205:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/cookies.rb:339:in `call'
+  activerecord (3.2.8) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:473:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:405:in `_run__127003068950539306__call__298838861502410533__callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.8) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 18:59:32 +0100
+Processing by JobseekersController#index as HTML
+  Rendered jobseekers/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 993ms (Views: 35.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /badges.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /companies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.css?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /companytoevent_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.css?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /companytoevents.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.css?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /event_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.css?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /job_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /sites.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /stands.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.css?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /subscribers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /badges.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /companies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.js?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /companytoevents.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.js?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /event_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.js?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /job_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.js?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /companytoevent_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /sites.js - 304 Not Modified (61ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /stands.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.js?body=1" for 127.0.0.1 at 2012-11-20 18:59:33 +0100
+Served asset /subscribers.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 19:00:00 +0100
+Processing by JobseekersController#index as HTML
+  Rendered jobseekers/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 464ms (Views: 39.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/event_details.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:00 +0100
+Served asset /event_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /badges.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /companies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /companytoevent_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /companytoevents.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /job_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /stands.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /sites.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /subscribers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /badges.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /companies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /companytoevent_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /companytoevents.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /event_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /sites.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /job_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /stands.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /subscribers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:01 +0100
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 19:00:10 +0100
+Processing by JobseekersController#index as HTML
+  Rendered jobseekers/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 1197ms (Views: 30.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /companies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /companytoevent_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /badges.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /companytoevents.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /event_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /job_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /sites.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /stands.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.css?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /subscribers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /badges.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /companies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /job_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /companytoevents.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /event_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /companytoevent_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /sites.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /stands.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /subscribers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-20 19:00:11 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 19:18:06 +0100
+
+ActionController::RoutingError (undefined method `attr_accessible' for Jobseeker:Class):
+  app/models/jobseeker.rb:2:in `<class:Jobseeker>'
+  app/models/jobseeker.rb:1:in `<top (required)>'
+  app/controllers/jobseekers_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-21 09:14:03 +0100
+
+NoMethodError (undefined method `key?' for nil:NilClass):
+  actionpack (3.2.8) lib/action_controller/metal/hide_actions.rb:36:in `visible_action?'
+  actionpack (3.2.8) lib/action_controller/metal/hide_actions.rb:18:in `method_for_action'
+  actionpack (3.2.8) lib/action_controller/metal/implicit_render.rb:14:in `method_for_action'
+  actionpack (3.2.8) lib/action_controller/metal/compatibility.rb:61:in `method_for_action'
+  actionpack (3.2.8) lib/abstract_controller/base.rb:115:in `process'
+  actionpack (3.2.8) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.8) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.8) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.8) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.8) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (3.2.8) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.8) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.8) lib/action_dispatch/routing/route_set.rb:600:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.1) lib/rack/etag.rb:23:in `call'
+  rack (1.4.1) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:205:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/cookies.rb:339:in `call'
+  activerecord (3.2.8) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:473:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:405:in `_run__127003068950539306__call__298838861502410533__callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.8) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (11.4ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.3ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (51.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-21 09:14:41 +0100
+
+ActionController::RoutingError (undefined method `attr_accessible' for Jobseeker:Class):
+  app/models/jobseeker.rb:2:in `<class:Jobseeker>'
+  app/models/jobseeker.rb:1:in `<top (required)>'
+  app/controllers/jobseekers_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-21 09:14:47 +0100
+Processing by JobseekersController#index as HTML
+  Rendered jobseekers/index.html.erb within layouts/application (381.6ms)
+Completed 200 OK in 1120ms (Views: 408.1ms | ActiveRecord: 0.0ms)
+
+TypeError (no _dump_data is defined for class Proc):
+  activesupport (3.2.8) lib/active_support/message_verifier.rb:53:in `dump'
+  activesupport (3.2.8) lib/active_support/message_verifier.rb:53:in `generate'
+  actionpack (3.2.8) lib/action_dispatch/middleware/cookies.rb:298:in `[]='
+  actionpack (3.2.8) lib/action_dispatch/middleware/session/cookie_store.rb:67:in `set_cookie'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:330:in `commit_session'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:206:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/cookies.rb:339:in `call'
+  activerecord (3.2.8) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:473:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:405:in `_run__127003068950539306__call__298838861502410533__callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.8) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-21 16:42:26 +0100
+Processing by JobseekersController#index as HTML
+  Rendered jobseekers/index.html.erb within layouts/application (85.5ms)
+Completed 200 OK in 912ms (Views: 126.7ms | ActiveRecord: 0.0ms)
+
+TypeError (no _dump_data is defined for class Proc):
+  activesupport (3.2.8) lib/active_support/message_verifier.rb:53:in `dump'
+  activesupport (3.2.8) lib/active_support/message_verifier.rb:53:in `generate'
+  actionpack (3.2.8) lib/action_dispatch/middleware/cookies.rb:298:in `[]='
+  actionpack (3.2.8) lib/action_dispatch/middleware/session/cookie_store.rb:67:in `set_cookie'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:330:in `commit_session'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:206:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/cookies.rb:339:in `call'
+  activerecord (3.2.8) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:473:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:405:in `_run__127003068950539306__call__298838861502410533__callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.8) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.8) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (10.2ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.3ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (52.6ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateCompanies (20121116143701)
+Migrating to CreateJobs (20121116144141)
+Migrating to CreateCompanytoevents (20121116144212)
+Migrating to CreateStands (20121116144755)
+Migrating to CreateBadges (20121116144816)
+Migrating to CreateCompanytoeventDetails (20121116144856)
+Migrating to CreateEvents (20121117084745)
+Migrating to CreateSubscribers (20121117084813)
+Migrating to CreateSites (20121117084854)
+Migrating to CreateEventDetails (20121117084915)
+Migrating to CreateJobDetails (20121117084947)
+Migrating to CreateJobseekers (20121121154424)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "jobseekers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "userDID" varchar(255), "userEmail" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121121154424')[0m
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("badges")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("companies")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("companytoevent_details")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("companytoevents")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("event_details")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("events")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("job_details")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("jobs")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("jobseekers")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("sites")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("stands")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("subscribers")
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-21 16:44:32 +0100
+Processing by JobseekersController#index as HTML
+  [1m[36mJobseeker Load (0.1ms)[0m  [1mSELECT "jobseekers".* FROM "jobseekers" [0m
+  Rendered jobseekers/index.html.erb within layouts/application (4.2ms)
+Compiled jobseekers.css  (18ms)  (pid 33069)
+Compiled application.css  (77ms)  (pid 33069)
+Compiled jobseekers.js  (121ms)  (pid 33069)
+Compiled application.js  (139ms)  (pid 33069)
+Completed 200 OK in 562ms (Views: 407.9ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /application.css - 304 Not Modified (45ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /badges.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobseekers.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /jobseekers.js - 200 OK (1ms)
+
+
+Started GET "/assets/companytoevent_details.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /companytoevent_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobseekers.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /jobseekers.css - 200 OK (6ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /companies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /companytoevents.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /event_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /job_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /sites.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /stands.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /subscribers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /companytoevent_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /companies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /companytoevents.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /event_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /badges.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /job_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /sites.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /stands.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /subscribers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:33 +0100
+Served asset /application.js - 304 Not Modified (20ms)
+
+
+Started GET "/jobseekers/new" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Processing by JobseekersController#new as HTML
+  Rendered jobseekers/_form.html.erb (24.0ms)
+  Rendered jobseekers/new.html.erb within layouts/application (32.2ms)
+Completed 200 OK in 66ms (Views: 55.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /badges.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /companytoevent_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /event_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /companies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /companytoevents.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobseekers.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /jobseekers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /job_details.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /sites.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /subscribers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /stands.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /badges.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /companies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevent_details.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /companytoevent_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companytoevents.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /companytoevents.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_details.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /event_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job_details.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /job_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobseekers.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /jobseekers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /sites.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /stands.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/subscribers.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /subscribers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-21 16:44:35 +0100
+Served asset /application.js - 304 Not Modified (0ms)
