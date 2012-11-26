@@ -2,11 +2,7 @@
 
 <table>
   <tr>
-    <th>Site</th>
-    <th>Date</th>
-    <th>Hour begin</th>
-    <th>Hour end</th>
-    <th>Location</th>
+    <th>ID</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,11 +10,14 @@
 
 <% @events.each do |event| %>
   <tr>
-    <td><%= event.site_id %></td>
-    <td><%= event.date %></td>
-    <td><%= event.hour_begin %></td>
-    <td><%= event.hour_end %></td>
-    <td><%= event.location %></td>
+    <td>
+        <%= event.id %>
+
+        <% event.event_detail.each do |detail| %>
+            <br /> &gt; <%= detail.key %> : <%= detail.value %>
+        <% end %>
+
+    </td>
     <td><%= link_to 'Show', event %></td>
     <td><%= link_to 'Edit', edit_event_path(event) %></td>
     <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>

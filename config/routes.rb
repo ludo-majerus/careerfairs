@@ -1,7 +1,4 @@
 Careerfairs::Application.routes.draw do
-  resources :jobseekers
-
-  resources :job_details
 
   resources :event_details
 
@@ -16,10 +13,6 @@ Careerfairs::Application.routes.draw do
   resources :badges
 
   resources :stands
-
-  resources :companytoevents
-
-  resources :jobs
 
   resources :companies
 

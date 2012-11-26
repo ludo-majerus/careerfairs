@@ -1,4 +1,5 @@
-<%= form_for(@event) do |f| %>
+<%= form_for(@event, :html => { :class => "form-horizontal"}) do |f| %>
+
   <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -10,28 +11,51 @@
       </ul>
     </div>
   <% end %>
+  
+  <% 
+      if @event_detail != nil
+        subscription_open = @event_detail.where("key='ed:subscription_open'").first
+        if subscription_open != nil
+          subscription_open_value = subscription_open.value
+        end
 
-  <div class="field">
-    <%= f.label :site_id %><br />
-    <%= f.number_field :site_id %>
+        customer_list_open = @event_detail.where("key='ed:customer_list_open'").first
+        if customer_list_open != nil
+          customer_list_open_value = customer_list_open.value
+        end
+
+        location = @event_detail.where("key='ed:location'").first
+        if location != nil
+          location_value = location.value
+        end
+
+      end
+ %>
+
+  <div class="control-group">
+    <%= label_tag 'Préinscriptions ouverte', nil, :class => "control-label", :for => 'ed:subscription_open' %>
+    <div class="controls">
+      Yes <%= radio_button_tag 'ed:subscription_open', "true", subscription_open_value == "true" %>
+      No <%= radio_button_tag 'ed:subscription_open', "false", subscription_open_value == "false" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
+  <div class="control-group">
+    <%= label_tag 'Liste exposants ouverte', nil, :class => "control-label", :for => 'ed:customer_list_open' %>
+    <div class="controls">
+      Yes <%= radio_button_tag 'ed:customer_list_open', "true", customer_list_open_value == "true" %>
+      No <%= radio_button_tag 'ed:customer_list_open', "false", customer_list_open_value == "false" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :hour_begin %><br />
-    <%= f.time_select :hour_begin %>
+
+  <div class="control-group">
+    <%= label_tag 'Lieu Salon', nil, :class => "control-label", :for => 'ed:location' %>
+    <div class="controls">
+      <%= text_field_tag 'ed:location', location_value %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :hour_end %><br />
-    <%= f.time_select :hour_end %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
-  </div>
+     
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+

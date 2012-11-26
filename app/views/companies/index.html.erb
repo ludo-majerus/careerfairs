@@ -2,9 +2,7 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Login</th>
-    <th>Password</th>
+    <th>ID</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +10,14 @@
 
 <% @companies.each do |company| %>
   <tr>
-    <td><%= company.name %></td>
-    <td><%= company.login %></td>
-    <td><%= company.password %></td>
+    <td>
+      <%= company.id %>
+
+      <% company.company_detail.each do |detail| %>
+        <br /> &gt; <%= detail.key %> : <%= detail.value %>
+      <% end %>
+
+    </td>
     <td><%= link_to 'Show', company %></td>
     <td><%= link_to 'Edit', edit_company_path(company) %></td>
     <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>

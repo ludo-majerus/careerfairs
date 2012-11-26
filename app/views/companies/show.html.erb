@@ -1,20 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @company.name %>
+  <b>ID:</b>
+  <%= @company.id %>
 </p>
-
-<p>
-  <b>Login:</b>
-  <%= @company.login %>
-</p>
-
-<p>
-  <b>Password:</b>
-  <%= @company.password %>
-</p>
-
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>

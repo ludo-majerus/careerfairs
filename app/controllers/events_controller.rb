@@ -1,83 +1,71 @@
 class EventsController < ApplicationController
   # GET /events
-  # GET /events.json
   def index
     @events = Event.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @events }
-    end
   end
 
   # GET /events/1
-  # GET /events/1.json
   def show
     @event = Event.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @event }
-    end
   end
 
   # GET /events/new
-  # GET /events/new.json
   def new
     @event = Event.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @event }
-    end
   end
 
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
+    @event_detail = Event.find(params[:id]).event_detail
+
   end
 
   # POST /events
-  # POST /events.json
   def create
     @event = Event.new(params[:event])
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render json: @event, status: :created, location: @event }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+    if @event.save
+      params.each do |key, value| 
+        if (key.to_s[/ed:*/])
+          ed =  EventDetail.new
+          ed.event_id = @event.id
+          ed.key = key
+          ed.value = value
+          ed.save
+        end
       end
+      redirect_to @event, notice: 'Event was successfully created.' 
+    else
+      render action: "new" 
     end
   end
 
   # PUT /events/1
-  # PUT /events/1.json
   def update
     @event = Event.find(params[:id])
-
-    respond_to do |format|
-      if @event.update_attributes(params[:event])
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+    @event.event_detail.destroy_all
+    if @event.update_attributes(params[:event])
+      params.each do |key, value| 
+        if (key.to_s[/ed:*/])
+          ed =  EventDetail.new
+          ed.event_id = @event.id
+          ed.key = key
+          ed.value = value
+          ed.save
+        end
       end
+      redirect_to @event, notice: 'Event was successfully updated.'
+    else
+      render action: "edit" 
     end
   end
 
   # DELETE /events/1
-  # DELETE /events/1.json
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
 
-    respond_to do |format|
-      format.html { redirect_to events_url }
-      format.json { head :no_content }
-    end
+    redirect_to events_url 
   end
 end

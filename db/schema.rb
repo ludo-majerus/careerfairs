@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121154424) do
+ActiveRecord::Schema.define(:version => 20121122190559) do
 
   create_table "badges", :force => true do |t|
     t.integer  "companytoevent_id"
@@ -21,9 +21,14 @@ ActiveRecord::Schema.define(:version => 20121121154424) do
   end
 
   create_table "companies", :force => true do |t|
-    t.string   "name"
-    t.string   "login"
-    t.string   "password"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "company_details", :force => true do |t|
+    t.integer  "company_id"
+    t.string   "key"
+    t.string   "value"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -52,11 +57,6 @@ ActiveRecord::Schema.define(:version => 20121121154424) do
   end
 
   create_table "events", :force => true do |t|
-    t.integer  "site_id"
-    t.date     "date"
-    t.string   "hour_begin"
-    t.string   "hour_end"
-    t.string   "location"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -71,16 +71,8 @@ ActiveRecord::Schema.define(:version => 20121121154424) do
 
   create_table "jobs", :force => true do |t|
     t.integer  "companytoevent_id"
-    t.string   "title"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-  end
-
-  create_table "jobseekers", :force => true do |t|
-    t.string   "userDID"
-    t.string   "userEmail"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "sites", :force => true do |t|
@@ -98,9 +90,17 @@ ActiveRecord::Schema.define(:version => 20121121154424) do
     t.datetime "updated_at",        :null => false
   end
 
-  create_table "subscribers", :force => true do |t|
+  create_table "subscription_details", :force => true do |t|
+    t.integer  "subscription_id"
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "subscriptions", :force => true do |t|
     t.integer  "event_id"
-    t.integer  "status"
+    t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
