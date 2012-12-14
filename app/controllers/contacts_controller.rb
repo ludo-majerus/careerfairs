@@ -3,10 +3,10 @@ class ContactsController < ApplicationController
   def index
     if params[:company_id].present?
       if params[:search].present?
-        @search = Contact.search(params[:search])
+        @search = Contact.where("company_id = " + params[:company_id]).search(params[:search])
         @contacts = @search.paginate(:page => params[:page], :per_page => 10)   # or @search.relation to lazy load in view // @search.paginate(:page => params[:page])
       else
-        @contacts = Contact.paginate(:page => params[:page], :per_page => 10)
+        @contacts = Contact.where("company_id = " + params[:company_id]).paginate(:page => params[:page], :per_page => 10)
       end
     else
       flash[:error] = 'No company was found.' 

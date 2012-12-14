@@ -28,7 +28,7 @@
           <li>
         <% end %>
 
-          <%= link_to ev.city + ' / ' + ev.date_start.to_s, companies_url + "?event_id=#{ev.id}" %>
+          <%= link_to ev.city.to_s + ' / ' + ev.date_start.to_s, companies_url + "?event_id=#{ev.id}" %>
         </li>
       <% end %>
     </ul>
@@ -48,6 +48,18 @@
         
         <div class="span9">
           <%= company.comment %>
+          <hr />
+          <% @events.each do |ev| %>
+            <% if company.companytoevents.where("event_id = '" + ev.id.to_s + "'").blank? %> 
+              <span class="label label-important">Not subscribed</span>
+            <% else %>
+              <span class="label label-success">Subscribed</span>
+            <% end %> 
+            Event <%= ev.id.to_s + ' / ' + ev.city.to_s + ' / ' + ev.date_start.to_s %> 
+
+            <br />
+          <% end %>
+
         </div>
 
           <div class="span3">
@@ -60,6 +72,7 @@
             </div>
           </div>
       </div>
+
 
       <hr />
     
