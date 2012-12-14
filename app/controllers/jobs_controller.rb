@@ -1,35 +1,38 @@
+require 'httparty'
+require 'json'
+
 class JobsController < ApplicationController
+
+
   # GET /jobs
-  # GET /jobs.json
   def index
+
+    @DeveloperKey = 'WDH72KM760XDSHG6WMYB' #WD1B37Z74Y7BL07ZM89B
+    @DeveloperKey = 'WDHH2VY6TLSDGVJF4S7J' 
+    @jobDID = 'J3G0CK6SHTPJ4ZD2VS7'
+    @UserDID = 'U8D17K6J4YVZP6R1VPQ'
+    @HostSite = 'UK'
+    @CountLimit = '5'
+    #@url_with_param = 'http://api.careerbuilder.com/v1/recommendations/forjob?DeveloperKey='+@DeveloperKey+'&jobDID='+@jobDID+'&CountLimit='+@CountLimit
+    @url_with_param = 'http://apitest.careerbuilder.com/INTLAPI/Feeds/GetFeeds.aspx?DeveloperKey='+@DeveloperKey+'&UserDID='+@UserDID+'&HostSite='+@HostSite
+    @url_with_param = 'http://apitest.careerbuilder.com/INTLAPI/Feeds/GetFeeds.aspx?DeveloperKey=WDHH2VY6TLSDGVJF4S7J&UserDID=U8D17K6J4YVZP6R1VPQ&HostSite=UK'
+    
+    @resultJSON = HTTParty.get(@url_with_param.to_str)
+    @resultXML = @resultJSON.response.body
+
     @jobs = Job.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @jobs }
-    end
+
   end
 
   # GET /jobs/1
-  # GET /jobs/1.json
   def show
     @job = Job.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @job }
-    end
   end
 
   # GET /jobs/new
-  # GET /jobs/new.json
   def new
     @job = Job.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @job }
-    end
   end
 
   # GET /jobs/1/edit
@@ -38,46 +41,32 @@ class JobsController < ApplicationController
   end
 
   # POST /jobs
-  # POST /jobs.json
   def create
     @job = Job.new(params[:job])
 
-    respond_to do |format|
-      if @job.save
-        format.html { redirect_to @job, notice: 'Job was successfully created.' }
-        format.json { render json: @job, status: :created, location: @job }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @job.errors, status: :unprocessable_entity }
-      end
+    if @job.save
+      redirect_to @job, notice: 'Job was successfully created.'
+    else
+      render action: "new" 
     end
   end
 
   # PUT /jobs/1
-  # PUT /jobs/1.json
   def update
     @job = Job.find(params[:id])
 
-    respond_to do |format|
-      if @job.update_attributes(params[:job])
-        format.html { redirect_to @job, notice: 'Job was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @job.errors, status: :unprocessable_entity }
-      end
+    if @job.update_attributes(params[:job])
+      redirect_to @job, notice: 'Job was successfully updated.' 
+    else
+      render action: "edit" 
     end
   end
 
   # DELETE /jobs/1
-  # DELETE /jobs/1.json
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
 
-    respond_to do |format|
-      format.html { redirect_to jobs_url }
-      format.json { head :no_content }
-    end
+    redirect_to jobs_url
   end
 end

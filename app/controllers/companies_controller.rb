@@ -2,6 +2,13 @@ class CompaniesController < ApplicationController
   # GET /companies
   def index
     @companies = Company.all
+    @events = Event.all
+    if params[:search].present?
+      @search = Company.search(params[:search])
+      @companies = @search.paginate(:page => params[:page], :per_page => 3)  
+    else
+      @companies = Company.paginate(:page => params[:page], :per_page => 3)
+    end
   end
 
   # GET /companies/1
@@ -33,11 +40,10 @@ class CompaniesController < ApplicationController
   # PUT /companies/1
   def update
     @company = Company.find(params[:id])
-
     if @company.update_attributes(params[:company])
       redirect_to @company, notice: 'Company was successfully updated.'
     else
-      render action: "edit"
+      render action: "edit" 
     end
   end
 

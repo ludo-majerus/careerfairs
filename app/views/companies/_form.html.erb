@@ -1,4 +1,6 @@
+
 <%= form_for(@company) do |f| %>
+
   <% if @company.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
@@ -11,7 +13,19 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <label id="company_title"> <%= f.text_field :name, :class => 'span10', :placeholder => 'Company name' %> </label> 
+  <label id="company_body"><%= f.text_area :description, :class => 'span10 tinymce', :placeholder => 'Company description' %> </label> 
+  <label id="company_title"> <%= f.text_field :address, :class => 'span10', :placeholder => 'Company address' %> </label> 
+  <label id="company_title"> <%= f.text_field :website, :class => 'span10', :placeholder => 'Company website' %> </label> 
+
+  <br />
+  <hr />
+
+  <label id="company_body"><%= f.text_area :comment, :class => 'span10 tinymce', :placeholder => 'Comment (only for admin)' %> </label> 
+
+  <%= f.submit :class => "btn btn-primary btn-normal" %>
+
+<% end %> 
+
+<% # I need to add :formlocked, :badgeslocked, :lunch, :logo
+%>

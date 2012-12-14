@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
+gem  'json'
 gem  'httparty'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -26,6 +27,8 @@ end
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'will_paginate', '~> 3.0.0'
+gem "meta_search" #, :git => "git://github.com/ernie/meta_search.git" # Track git repo
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

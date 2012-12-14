@@ -11,51 +11,43 @@
       </ul>
     </div>
   <% end %>
-  
-  <% 
-      if @event_detail != nil
-        subscription_open = @event_detail.where("key='ed:subscription_open'").first
-        if subscription_open != nil
-          subscription_open_value = subscription_open.value
-        end
-
-        customer_list_open = @event_detail.where("key='ed:customer_list_open'").first
-        if customer_list_open != nil
-          customer_list_open_value = customer_list_open.value
-        end
-
-        location = @event_detail.where("key='ed:location'").first
-        if location != nil
-          location_value = location.value
-        end
-
-      end
- %>
 
   <div class="control-group">
-    <%= label_tag 'Préinscriptions ouverte', nil, :class => "control-label", :for => 'ed:subscription_open' %>
+    <%= label_tag 'Subscription opened', nil, :class => "control-label", :for => 'ed:subscription_open' %>
     <div class="controls">
-      Yes <%= radio_button_tag 'ed:subscription_open', "true", subscription_open_value == "true" %>
-      No <%= radio_button_tag 'ed:subscription_open', "false", subscription_open_value == "false" %>
+      <label class="radio inline">
+        <%= radio_button_tag 'ed:subscription_open', "true", @subscription_open_value == "true" %> Yes
+      </label>
+      <label class="radio inline">
+        <%= radio_button_tag 'ed:subscription_open', "false", @subscription_open_value == "false" %> No
+    </label>
     </div>
   </div>
   <div class="control-group">
     <%= label_tag 'Liste exposants ouverte', nil, :class => "control-label", :for => 'ed:customer_list_open' %>
     <div class="controls">
-      Yes <%= radio_button_tag 'ed:customer_list_open', "true", customer_list_open_value == "true" %>
-      No <%= radio_button_tag 'ed:customer_list_open', "false", customer_list_open_value == "false" %>
+      <label class="radio inline">
+        <%= radio_button_tag 'ed:customer_list_open', "true", @customer_list_open_value == "true" %> Yes
+      </label>
+      <label class="radio inline">
+        <%= radio_button_tag 'ed:customer_list_open', "false", @customer_list_open_value == "false" %> No
+      </label>
     </div>
   </div>
-
   <div class="control-group">
-    <%= label_tag 'Lieu Salon', nil, :class => "control-label", :for => 'ed:location' %>
+    <%= label_tag 'Location', nil, :class => "control-label", :for => 'ed:location' %>
     <div class="controls">
-      <%= text_field_tag 'ed:location', location_value %>
+      <%= text_field_tag 'ed:location', @location_value, :placeholder => 'Enter location for event...', :onchange => '' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag 'Date / Time', nil, :class => "control-label", :for => 'ed:date' %>
+    <div class="controls">
+      <%= select_date( @date_value, :field_name => 'ed:date', :prompt => {:day => 'Choose day', :month => 'Choose month', :year => 'Choose year'}) %>
     </div>
   </div>
      
   <div class="actions">
-    <%= f.submit %>
+      <%= f.submit nil, :class => "btn" %>
   </div>
 <% end %>
-

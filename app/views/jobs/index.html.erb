@@ -1,3 +1,14 @@
+<pre><%= @resultJSON %></pre>
+
+<% @resultJSON.parsed_response["ResponseFeedAPI"]["FeedItems"].each do |item| %>
+  <%= item %> <hr />
+  <% item.each do |key,value| %>
+    <b><%= key %></b> : <%= value %> <br />
+  <% end %>
+
+  <hr /><hr />
+<% end %>
+
 <h1>Listing jobs</h1>
 
 <table>

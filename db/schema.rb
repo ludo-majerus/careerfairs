@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121122190559) do
+ActiveRecord::Schema.define(:version => 20121214201153) do
 
   create_table "badges", :force => true do |t|
     t.integer  "companytoevent_id"
@@ -21,50 +21,47 @@ ActiveRecord::Schema.define(:version => 20121122190559) do
   end
 
   create_table "companies", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "company_details", :force => true do |t|
-    t.integer  "company_id"
-    t.string   "key"
-    t.string   "value"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "companytoevent_details", :force => true do |t|
-    t.integer  "companytoevent_id"
-    t.string   "key"
-    t.string   "value"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "name"
+    t.text     "description"
+    t.string   "address"
+    t.string   "logo"
+    t.string   "website"
+    t.boolean  "formlocked"
+    t.boolean  "badgeslocked"
+    t.integer  "lunch"
+    t.text     "comment"
   end
 
   create_table "companytoevents", :force => true do |t|
     t.integer  "company_id"
     t.integer  "event_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "stand_size"
+    t.string   "stand_id"
+    t.integer  "lunch"
+    t.integer  "desk"
+    t.integer  "chair"
+    t.integer  "table"
+    t.integer  "trash"
+    t.integer  "clothesrack"
+    t.integer  "shelf"
   end
 
-  create_table "event_details", :force => true do |t|
-    t.integer  "event_id"
-    t.string   "key"
-    t.string   "value"
+  create_table "contacts", :force => true do |t|
+    t.integer  "company_id"
+    t.string   "name"
+    t.string   "login"
+    t.string   "password"
+    t.string   "email"
+    t.string   "phone"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "events", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "job_details", :force => true do |t|
-    t.integer  "job_id"
-    t.string   "key"
-    t.string   "value"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -88,14 +85,6 @@ ActiveRecord::Schema.define(:version => 20121122190559) do
     t.string   "size"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-  end
-
-  create_table "subscription_details", :force => true do |t|
-    t.integer  "subscription_id"
-    t.string   "key"
-    t.string   "value"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
   end
 
   create_table "subscriptions", :force => true do |t|

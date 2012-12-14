@@ -1,3 +1,5 @@
 class Company < ActiveRecord::Base
-	has_many :company_detail
+	has_many :companytoevent
+	has_many :contact
+	attr_accessible :name, :description, :address, :website, :formlocked, :badgeslocked, :lunch, :logo, :comment
 end
