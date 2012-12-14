@@ -63717,3 +63717,240 @@ Served asset /stands.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-14 21:17:47 +0100
 Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Processing by CompaniesController#new as HTML
+  Rendered companies/_form.html.erb (3.3ms)
+  Rendered companies/new.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 35ms (Views: 34.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /badges.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /companies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /sites.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /stands.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /bootstrap.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /badges.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /companies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /sites.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /stands.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-14 21:20:39 +0100
+Served asset /application.js - 304 Not Modified (2ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/companies" for 127.0.0.1 at 2012-12-14 21:26:56 +0100
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" [0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" 
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" LIMIT 3 OFFSET 0[0m
+  Rendered companies/index.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 37.9ms | ActiveRecord: 0.5ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateCompanies (20121116143701)
+Migrating to CreateJobs (20121116144141)
+Migrating to CreateCompanytoevents (20121116144212)
+Migrating to CreateStands (20121116144755)
+Migrating to CreateBadges (20121116144816)
+Migrating to CreateCompanytoeventDetails (20121116144856)
+Migrating to CreateEvents (20121117084745)
+Migrating to CreateSubscribers (20121117084813)
+Migrating to CreateSites (20121117084854)
+Migrating to CreateEventDetails (20121117084915)
+Migrating to CreateJobDetails (20121117084947)
+Migrating to CreateJobseekers (20121121154424)
+Migrating to Deleteuselesscolumns (20121122180858)
+Migrating to CreateSubscriptions (20121122190242)
+Migrating to CreateSubscriptionDetails (20121122190339)
+Migrating to CreateCompanyDetails (20121122190559)
+Migrating to Reviewofthedbschema (20121211143951)
+Migrating to ChangeNameOfContactTable (20121214193802)
+Migrating to AddCommentToCompany (20121214201153)
+Migrating to Revisionofdbschema2 (20121214202328)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  ALTER TABLE "events" ADD "subscription_open" boolean
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "events" ADD "list_customers_open" boolean[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "events" ADD "date_start" date
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "events" ADD "date_end" date[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "events" ADD "time_start" time
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "events" ADD "time_end" time[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "events" ADD "address" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "events" ADD "city" varchar(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "events" ADD "url_catalog" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "events" ADD "url_technical_info" varchar(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "events" ADD "url_event_plan" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "events" ADD "city" varchar(255)[0m
+SQLite3::SQLException: duplicate column name: city: ALTER TABLE "events" ADD "city" varchar(255)
+  [1m[35m (0.8ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateCompanies (20121116143701)
+Migrating to CreateJobs (20121116144141)
+Migrating to CreateCompanytoevents (20121116144212)
+Migrating to CreateStands (20121116144755)
+Migrating to CreateBadges (20121116144816)
+Migrating to CreateCompanytoeventDetails (20121116144856)
+Migrating to CreateEvents (20121117084745)
+Migrating to CreateSubscribers (20121117084813)
+Migrating to CreateSites (20121117084854)
+Migrating to CreateEventDetails (20121117084915)
+Migrating to CreateJobDetails (20121117084947)
+Migrating to CreateJobseekers (20121121154424)
+Migrating to Deleteuselesscolumns (20121122180858)
+Migrating to CreateSubscriptions (20121122190242)
+Migrating to CreateSubscriptionDetails (20121122190339)
+Migrating to CreateCompanyDetails (20121122190559)
+Migrating to Reviewofthedbschema (20121211143951)
+Migrating to ChangeNameOfContactTable (20121214193802)
+Migrating to AddCommentToCompany (20121214201153)
+Migrating to Revisionofdbschema2 (20121214202328)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "events" ADD "subscription_open" boolean
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "events" ADD "list_customers_open" boolean[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "events" ADD "date_start" date
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "events" ADD "date_end" date[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "events" ADD "time_start" time
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "events" ADD "time_end" time[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "events" ADD "address" varchar(255)
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ADD "city" varchar(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "events" ADD "url_catalog" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "events" ADD "url_technical_info" varchar(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "events" ADD "url_event_plan" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "events" ADD "date_end_customers" date[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "events" ADD "date_end_badges" date
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121214202328')[0m
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.4ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("badges")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("companies")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("companytoevents")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("contacts")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("jobs")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("sites")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("stands")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("subscriptions")[0m
