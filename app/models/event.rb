@@ -1,4 +1,4 @@
 class Event < ActiveRecord::Base
-	has_many :event_detail
-	has_many :companytoevent
+	has_many :companytoevents
+	has_many :companies, :through => :companytoevents
 end

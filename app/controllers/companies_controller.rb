@@ -1,14 +1,17 @@
 class CompaniesController < ApplicationController
   # GET /companies
   def index
-    @companies = Company.all
-    @events = Event.all
     if params[:search].present?
       @search = Company.search(params[:search])
-      @companies = @search.paginate(:page => params[:page], :per_page => 3)  
+      @companies = @search.paginate(:page => params[:page], :per_page => 10)   # or @search.relation to lazy load in view // @search.paginate(:page => params[:page])
     else
-      @companies = Company.paginate(:page => params[:page], :per_page => 3)
+      if params[:event_id].nil?
+        @companies = Company.paginate(:page => params[:page], :per_page => 10)
+      else
+        @companies = Company.where(["id in (select company_id from companytoevents where event_id = ?)", params[:event_id]]).paginate(:page => params[:page], :per_page => 10)
+      end
     end
+    @events = Event.where("date_start > ?", DateTime.now)
   end
 
   # GET /companies/1

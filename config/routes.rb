@@ -1,14 +1,10 @@
 Careerfairs::Application.routes.draw do
 
-  resources :event_details
-
   resources :sites
-
-  resources :subscribers
 
   resources :events
 
-  resources :companytoevent_details
+  resources :contacts
 
   resources :badges
 

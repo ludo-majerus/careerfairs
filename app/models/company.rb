@@ -1,5 +1,6 @@
 class Company < ActiveRecord::Base
-	has_many :companytoevent
-	has_many :contact
+	has_many :contacts
+	has_many :companytoevents
+	has_many :events, :through => :companytoevents
 	attr_accessible :name, :description, :address, :website, :formlocked, :badgeslocked, :lunch, :logo, :comment
 end

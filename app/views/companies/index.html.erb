@@ -1,14 +1,39 @@
 
 <div class="container-fluid">
 
-  <a href="/companies/new" class="btn btn-primary btn-large"><%= t(:create_new_company)%></a>
-
+  <%= link_to 'New Company', new_company_path, :class => "btn btn-primary" %>
 
   <%= form_tag companies_path, :method => :get, :id => 'company_search', :class => "navbar-search pull-right visible-desktop" do %>
       <%= text_field_tag 'search[name_or_comment_contains]', nil, :class => "search-query", :placeholder => "Search" %>
   <% end %>
 
   <br /><br /><hr /><br />
+
+  <div class="tabbable tabs-above hidden-phone">
+    <div class="tab-content">Filters by Event: </div>
+    
+    <ul class="nav nav-tabs">
+
+      <% if params[:event_id].nil? %>
+        <li class="active">
+      <% else %>
+        <li>
+      <% end %>
+        <%= link_to "All", companies_url %>
+      </li>
+      <% @events.each do |ev| %>
+        <% if params[:event_id].to_s == ev.id.to_s %>
+          <li class="active">
+        <% else %>
+          <li>
+        <% end %>
+
+          <%= link_to ev.city + ' / ' + ev.date_start.to_s, companies_url + "?event_id=#{ev.id}" %>
+        </li>
+      <% end %>
+    </ul>
+
+  </div>
 
   <% @companies.each do |company| %>
       <div class="table table-hover">
@@ -27,8 +52,11 @@
 
           <div class="span3">
             <div class="btn-group" data-toggle="buttons-checkbox" style="text-align: center;">
-              <%= link_to 'Edit', edit_company_path(company), :class => "btn btn-primary btn-mini" %> 
-              <%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-mini" %>
+              <%= link_to 'Contacts', contacts_path(:company_id => company.id), :class => "btn btn-info " %> 
+              <%= link_to 'Badges', badges_path(:company_id => company.id), :class => "btn btn-info " %> 
+              <%= link_to 'Jobs', jobs_path(:company_id => company.id), :class => "btn btn-info " %> 
+              <%= link_to 'Edit', edit_company_path(company), :class => "btn btn-warning " %> 
+              <%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
             </div>
           </div>
       </div>
