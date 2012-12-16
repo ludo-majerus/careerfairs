@@ -2,6 +2,10 @@ class BadgesController < ApplicationController
   # GET /badges
   def index
     @badges = Badge.all
+    respond_to do |format|
+      format.html
+      format.xls 
+    end
   end
 
   # GET /badges/1

@@ -4,7 +4,7 @@
   <%= link_to 'New Contact', new_contact_path(:company_id => params[:company_id]), :class => "btn btn-primary" %>
 
   <%= form_tag contacts_path, :method => :get, :id => 'contact_search', :class => "navbar-search pull-right visible-desktop" do %>
-      <%= text_field_tag 'search[name_or_login_or_email_contains]', nil, :class => "search-query", :placeholder => "Search" %>
+      <%= text_field_tag 'search[name_or_login_or_email_contains]', nil, :class => "search-query", :placeholder => "Contact name, email or login" %>
       <%= hidden_field_tag :company_id, params[:company_id] %>
 
   <% end %>

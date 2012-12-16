@@ -11,7 +11,8 @@ class CompaniesController < ApplicationController
         @companies = Company.where(["id in (select company_id from companytoevents where event_id = ?)", params[:event_id]]).paginate(:page => params[:page], :per_page => 10)
       end
     end
-    @events = Event.where("date_start > ?", DateTime.now)
+    @events = Event.where("date_event > ?", DateTime.now)
+    
   end
 
   # GET /companies/1
@@ -34,7 +35,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(params[:company])
 
     if @company.save
-      redirect_to @company, notice: 'Company was successfully created.' 
+      redirect_to companies_url, notice: 'Company was successfully created.' 
     else
       render action: "new" 
     end
@@ -44,7 +45,7 @@ class CompaniesController < ApplicationController
   def update
     @company = Company.find(params[:id])
     if @company.update_attributes(params[:company])
-      redirect_to @company, notice: 'Company was successfully updated.'
+      redirect_to companies_url, notice: 'Company was successfully updated.'
     else
       render action: "edit" 
     end

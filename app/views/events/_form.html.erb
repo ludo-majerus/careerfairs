@@ -1,4 +1,5 @@
-<%= form_for(@event, :html => { :class => "form-horizontal"}) do |f| %>
+
+<%= form_for(@event) do |f| %>
 
   <% if @event.errors.any? %>
     <div id="error_explanation">
@@ -12,42 +13,41 @@
     </div>
   <% end %>
 
-  <div class="control-group">
-    <%= label_tag 'Subscription opened', nil, :class => "control-label", :for => 'ed:subscription_open' %>
-    <div class="controls">
-      <label class="radio inline">
-        <%= radio_button_tag 'ed:subscription_open', "true", @subscription_open_value == "true" %> Yes
-      </label>
-      <label class="radio inline">
-        <%= radio_button_tag 'ed:subscription_open', "false", @subscription_open_value == "false" %> No
-    </label>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= label_tag 'Liste exposants ouverte', nil, :class => "control-label", :for => 'ed:customer_list_open' %>
-    <div class="controls">
-      <label class="radio inline">
-        <%= radio_button_tag 'ed:customer_list_open', "true", @customer_list_open_value == "true" %> Yes
-      </label>
-      <label class="radio inline">
-        <%= radio_button_tag 'ed:customer_list_open', "false", @customer_list_open_value == "false" %> No
-      </label>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= label_tag 'Location', nil, :class => "control-label", :for => 'ed:location' %>
-    <div class="controls">
-      <%= text_field_tag 'ed:location', @location_value, :placeholder => 'Enter location for event...', :onchange => '' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= label_tag 'Date / Time', nil, :class => "control-label", :for => 'ed:date' %>
-    <div class="controls">
-      <%= select_date( @date_value, :field_name => 'ed:date', :prompt => {:day => 'Choose day', :month => 'Choose month', :year => 'Choose year'}) %>
-    </div>
-  </div>
-     
-  <div class="actions">
-      <%= f.submit nil, :class => "btn" %>
-  </div>
-<% end %>
+  <label id="event_address"> <%= f.text_field :address, :class => 'span10', :placeholder => 'Event address' %> </label> 
+  <label id="event_city"> <%= f.text_field :city, :class => 'span10', :placeholder => 'Event city' %> </label> 
+  
+  <hr />
+  
+  date_event: <%= date_select("event", "date_event") %> <br />
+  time_start: <%= f.text_field :time_start, :placeholder => 'Time start' %> <br />
+  time_end: <%= f.text_field :time_end, :placeholder => 'Time end' %> <br />
+
+  <hr />
+  
+  Subscription open:
+  <label id="event_subscription_open_yes"><%= radio_button("event", "subscription_open", true) %> Yes</label> 
+  <label id="event_subscription_open_no"><%= radio_button("event", "subscription_open", false) %> No</label> 
+  <br />
+  List customer open:
+  <label id="event_list_customers_open_yes"><%= radio_button("event", "list_customers_open", true) %> Yes</label> 
+  <label id="event_slist_customers_open_no"><%= radio_button("event", "list_customers_open", false) %> No</label> 
+
+  <hr />
+  
+  <label id="event_url_catalog"><%= f.text_field :url_catalog, :class => 'span10', :placeholder => 'Url du catalogue' %></label> 
+  <label id="event_url_technical_info"> <%= f.text_field :url_technical_info, :class => 'span10', :placeholder => 'url_technical_info' %> </label> 
+  <label id="event_url_event_plan"> <%= f.text_field :url_event_plan, :class => 'span10', :placeholder => 'url_event_plan' %> </label> 
+
+  <hr />
+  date_end_customers: <%= date_select("event", "date_end_customers", :order => [:day, :month, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' }) %> <br />
+  date_end_badges: <%= date_select("event", "date_end_badges", :order => [:day, :month, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' }) %> <br />
+  
+
+  <%= f.submit :class => "btn btn-primary btn-normal" %>
+
+<% end %> 
+
+<% 
+    # t.time     "time_start"
+    # t.time     "time_end"
+%>

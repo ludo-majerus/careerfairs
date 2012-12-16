@@ -4,7 +4,7 @@
   <%= link_to 'New Company', new_company_path, :class => "btn btn-primary" %>
 
   <%= form_tag companies_path, :method => :get, :id => 'company_search', :class => "navbar-search pull-right visible-desktop" do %>
-      <%= text_field_tag 'search[name_or_comment_contains]', nil, :class => "search-query", :placeholder => "Search" %>
+      <%= text_field_tag 'search[name_or_comment_contains]', nil, :class => "search-query", :placeholder => "Company or comment" %>
   <% end %>
 
   <br /><br /><hr /><br />
@@ -28,7 +28,7 @@
           <li>
         <% end %>
 
-          <%= link_to ev.city.to_s + ' / ' + ev.date_start.to_s, companies_url + "?event_id=#{ev.id}" %>
+          <%= link_to ev.city.to_s + ' / ' + ev.date_event.to_s, companies_url + "?event_id=#{ev.id}" %>
         </li>
       <% end %>
     </ul>
@@ -55,7 +55,7 @@
             <% else %>
               <span class="label label-success">Subscribed</span>
             <% end %> 
-            Event <%= ev.id.to_s + ' / ' + ev.city.to_s + ' / ' + ev.date_start.to_s %> 
+            Event <%= ev.id.to_s + ' / ' + ev.city.to_s + ' / ' + ev.date_event.to_s %> 
 
             <br />
           <% end %>
@@ -65,8 +65,6 @@
           <div class="span3">
             <div class="btn-group" data-toggle="buttons-checkbox" style="text-align: center;">
               <%= link_to 'Contacts', contacts_path(:company_id => company.id), :class => "btn btn-info " %> 
-              <%= link_to 'Badges', badges_path(:company_id => company.id), :class => "btn btn-info " %> 
-              <%= link_to 'Jobs', jobs_path(:company_id => company.id), :class => "btn btn-info " %> 
               <%= link_to 'Edit', edit_company_path(company), :class => "btn btn-warning " %> 
               <%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
             </div>

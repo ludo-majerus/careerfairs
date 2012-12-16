@@ -1,7 +1,13 @@
 class EventsController < ApplicationController
-  # GET /events
+  
+  # GET /events 
   def index
-    @events = Event.all
+    @events = Event.order("created_at DESC")
+    if params["event_id"].present?
+      @current_event = Event.find(params["event_id"])
+    else
+      @current_event = Event.where("date_event > ?", DateTime.now).order("created_at").first || Event.first
+    end
   end
 
   # GET /events/1
@@ -17,18 +23,6 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
-    @event_detail = Event.find(params[:id]).event_detail
-
-    subscription_open = @event_detail.where("key='ed:subscription_open'").first
-    @subscription_open_value = subscription_open.value if subscription_open != nil
-
-    customer_list_open = @event_detail.where("key='ed:customer_list_open'").first
-    @customer_list_open_value = customer_list_open.value if customer_list_open != nil
-
-    location = @event_detail.where("key='ed:location'").first
-    @location_value = location.value if location != nil
-
-    date = ''
   end
 
   # POST /events
@@ -36,16 +30,7 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
 
     if @event.save
-      params.each do |key, value| 
-        if (key.to_s[/ed:*/])
-          ed =  EventDetail.new
-          ed.event_id = @event.id
-          ed.key = key
-          ed.value = value
-          ed.save
-        end
-      end
-      redirect_to @event, notice: 'Event was successfully created.' 
+      redirect_to events_url, notice: 'Event was successfully created.' 
     else
       render action: "new" 
     end
@@ -55,17 +40,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(params[:event])
-      @event.event_detail.destroy_all
-      params.each do |key, value| 
-        if (key.to_s[/ed:*/])
-          ed =  EventDetail.new
-          ed.event_id = @event.id
-          ed.key = key
-          ed.value = value
-          ed.save
-        end
-      end
-      redirect_to @event, notice: 'Event was successfully updated.' 
+      redirect_to events_url, notice: 'Event was successfully updated.'
     else
       render action: "edit" 
     end
@@ -76,6 +51,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
 
-    redirect_to events_url 
+    redirect_to events_url
   end
 end
