@@ -7,7 +7,8 @@ gem  'httparty'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
-	gem 'sqlite3'
+	gem 'sqlite3' 
+ 	gem 'better_errors'
 end
 
 group :production do
@@ -28,6 +29,9 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'will_paginate', '~> 3.0.0'
 gem "meta_search" #, :git => "git://github.com/ernie/meta_search.git" # Track git repo
+# gem 'devise'
+# gem 'cancan'
+gem 'simple_form'
 
 
 # To use ActiveModel has_secure_password
