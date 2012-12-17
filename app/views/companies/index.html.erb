@@ -9,7 +9,7 @@
 
   <br /><br /><hr /><br />
 
-  <div class="tabbable tabs-above hidden-phone">
+  <div class="tabbable tabs-above">
     <div class="tab-content">Filters by Event: </div>
     
     <ul class="nav nav-tabs">
@@ -48,7 +48,7 @@
         
         <div class="span9">
           <%= company.comment %>
-          <hr />
+          <br /><br />
           <% @events.each do |ev| %>
             <% if company.companytoevents.where("event_id = '" + ev.id.to_s + "'").blank? %> 
               <span class="label label-important">Not subscribed</span>
