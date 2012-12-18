@@ -14,11 +14,6 @@ class ContactsController < ApplicationController
     end
   end
 
-  # GET /contacts/1
-  def show
-    @contact = Contact.find(params[:id])
-  end
-
   # GET /contacts/new
   def new
     @contact = Contact.new

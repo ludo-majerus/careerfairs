@@ -1,5 +1,5 @@
 
-<%= form_for(@contact) do |f| %>
+<%= form_for(@contact, :html => { :class => "form-horizontal"}) do |f| %>
 
   <% if @contact.errors.any? %>
     <div id="error_explanation">
@@ -13,10 +13,43 @@
     </div>
   <% end %>
 
-  <label id="contact_name"> <%= f.text_field :name, :class => 'span10', :placeholder => 'Contact name' %> </label> 
-  <label id="contact_email"> <%= f.text_field :email, :class => 'span10', :placeholder => 'Contact email' %> </label> 
-  <label id="contact_login"> <%= f.text_field :login, :class => 'span10', :placeholder => 'Contact login' %> </label> 
-  <label id="contact_phone"> <%= f.text_field :phone, :class => 'span10', :placeholder => 'Contact phone' %> </label> 
+
+  <div class="control-group">
+    <%= f.label :contact_name, :class => "control-label", :for => "contact_name" %>
+    <div class="controls">
+      <%= f.text_field :name, :placeholder => 'Contact name' %>
+    </div>
+  </div>  
+
+  <div class="control-group">
+    <%= f.label :contact_email, :class => "control-label", :for => "contact_email" %>
+    <div class="controls">
+      <%= f.text_field :email, :placeholder => 'Contact email' %>
+    </div>
+  </div>  
+
+  <div class="control-group">
+    <%= f.label :contact_phone, :class => "control-label", :for => "contact_phone" %>
+    <div class="controls">
+      <%= f.text_field :name, :placeholder => 'Contact phone number' %>
+    </div>
+  </div>  
+
+  <div class="control-group">
+    <%= f.label :password, :class => "control-label", :for => "contact_password" %>
+    <div class="controls">
+      <%= f.password_field :password %>
+    </div>
+  </div>  
+
+  <div class="control-group">
+    <%= f.label :password_confirmation, :class => "control-label", :for => "contact_password_confirmation" %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
+
+
   <%= f.hidden_field :company_id, :value => params[:company_id] %>
   <%= f.submit :class => "btn btn-primary btn-normal" %>
 

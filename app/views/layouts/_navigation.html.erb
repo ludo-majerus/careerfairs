@@ -17,8 +17,25 @@
           <li class=""><a href="/companies"><%= t(:manage_companies)%></a></li>
           <li class="divider-vertical"></li>
 
+          <li class="">
+          <% if session[:current_user_authenticated].nil? %>
+            <a href="/sessions/new"><%= t(:login)%></a>
+          <% else %>
+            <p class="navbar-text">
+              Hello <%= Contact.find(session[:current_user_authenticated]).name %>
+              <% if session[:current_user_admin] %>
+                <span class="label label-important">ADMIN</span>
+              <% end %>
+              <em>(<a href="/sessions/logout"><%= t(:logout)%></a>)</em>
+            </p>
+          <% end %>
+          </li>
+
         </ul>
       </div>
+
+
+
 
     </div>
   </nav>

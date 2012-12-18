@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121216174758) do
+ActiveRecord::Schema.define(:version => 20121218155029) do
 
   create_table "badges", :force => true do |t|
     t.integer  "companytoevent_id"
@@ -53,12 +53,13 @@ ActiveRecord::Schema.define(:version => 20121216174758) do
   create_table "contacts", :force => true do |t|
     t.integer  "company_id"
     t.string   "name"
-    t.string   "login"
     t.string   "password"
     t.string   "email"
     t.string   "phone"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "password_digest"
+    t.boolean  "isadmin"
   end
 
   create_table "events", :force => true do |t|

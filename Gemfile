@@ -9,6 +9,7 @@ gem  'httparty'
 group :development do
 	gem 'sqlite3' 
  	gem 'better_errors'
+ 	gem "binding_of_caller"
 end
 
 group :production do
@@ -29,13 +30,11 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'will_paginate', '~> 3.0.0'
 gem "meta_search" #, :git => "git://github.com/ernie/meta_search.git" # Track git repo
-# gem 'devise'
-# gem 'cancan'
 gem 'simple_form'
 
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
