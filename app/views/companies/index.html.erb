@@ -32,9 +32,16 @@
         </li>
       <% end %>
     </ul>
-
-  </div>
-
+   </div>
+   
+	<% if params[:event_id].present? %>
+	<br />
+		<div>
+		<%= link_to 'Subscribe', new_event_guest_path(params[:event_id]), :class => "btn btn-primary" %>
+		</div>
+	<br />
+  <% end %>
+  
   <% @companies.each do |company| %>
       <div class="table table-hover">
       <div class="row-fluid ">
