@@ -2,17 +2,25 @@ Careerfairs::Application.routes.draw do
 
   resources :sites
 
-  resources :events
+  resources :events do
+    resources :stands
+  end
 
   resources :contacts
+  
+  resources :companies do
+    resources :contacts
+  end
+
+  resources :companytoevents do
+    resources :badges
+    resources :jobs
+    resources :events
+  end
 
   resources :badges
-
-  resources :stands
-
-  resources :companies
-
   resources :jobs
+
   match 'sessions/logout' => 'sessions#logout'
   match 'sessions/new' => 'sessions#login'
   match 'sessions' => 'sessions#create', :via => :post  

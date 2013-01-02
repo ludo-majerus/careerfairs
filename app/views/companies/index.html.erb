@@ -39,38 +39,39 @@
       <div class="table table-hover">
       <div class="row-fluid ">
 
-        <div class="span12">
+        <div class="span6">
           <h4 style="display:inline;"><%= link_to company.name, edit_company_path(company) %></h4>
         </div>  
 
+        <div class="span6">
+          <div class="btn-group" data-toggle="buttons-checkbox" style="text-align: right;">
+            <%= link_to 'Contacts', company_contacts_url(company.id), :class => "btn btn-info " %> 
+            <%= link_to 'Edit', edit_company_path(company), :class => "btn btn-warning " %> 
+            <%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+          </div>
+        </div>
       </div>
       <div class="row-fluid">
-        
-        <div class="span9">
-          <%= company.comment %>
-          <br /><br />
+        <div class="span12"><%= company.comment %></div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
           <% @events.each do |ev| %>
-            <% if company.companytoevents.where("event_id = '" + ev.id.to_s + "'").blank? %> 
-              <span class="label label-important">Not subscribed</span>
-            <% else %>
-              <span class="label label-success">Subscribed</span>
-            <% end %> 
+            <% 
+            if company.companytoevents.where("event_id = '" + ev.id.to_s + "'").blank? then
+              label_class = 'important' 
+              label = 'Not subscribed'  
+            else 
+              label_class = 'success'
+              label = 'Subscribed' 
+            end
+            %>
+            <span class="label label-<%= label_class %>"><%= label %></span>
             Event <%= ev.id.to_s + ' / ' + ev.city.to_s + ' / ' + ev.date_event.to_s %> 
-
             <br />
           <% end %>
-
         </div>
-
-          <div class="span3">
-            <div class="btn-group" data-toggle="buttons-checkbox" style="text-align: center;">
-              <%= link_to 'Contacts', contacts_path(:company_id => company.id), :class => "btn btn-info " %> 
-              <%= link_to 'Edit', edit_company_path(company), :class => "btn btn-warning " %> 
-              <%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
-            </div>
-          </div>
       </div>
-
 
       <hr />
     

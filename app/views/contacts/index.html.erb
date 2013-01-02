@@ -1,11 +1,10 @@
 
 <div class="container-fluid">
 
-  <%= link_to 'New Contact', new_contact_path(:company_id => params[:company_id]), :class => "btn btn-primary" %>
+  <%= link_to 'New Contact', new_company_contact_path, :class => "btn btn-primary" %>
 
-  <%= form_tag contacts_path, :method => :get, :id => 'contact_search', :class => "navbar-search pull-right visible-desktop" do %>
+  <%= form_tag company_contacts_path, :method => :get, :id => 'contact_search', :class => "navbar-search pull-right visible-desktop" do %>
       <%= text_field_tag 'search[name_or_login_or_email_contains]', nil, :class => "search-query", :placeholder => "Contact name, email or login" %>
-      <%= hidden_field_tag :company_id, params[:company_id] %>
 
   <% end %>
 
@@ -16,7 +15,7 @@
       <div class="row-fluid ">
 
         <div class="span12">
-          <h4 style="display:inline;"><%= link_to contact.name, edit_contact_path(contact, :company_id => params[:company_id]) %></h4>
+          <h4><%= contact.name %></h4>
         </div>  
 
       </div>
@@ -29,8 +28,8 @@
 
           <div class="span3">
             <div class="btn-group" data-toggle="buttons-checkbox" style="text-align: center;">
-              <%= link_to 'Edit', edit_contact_path(contact, :company_id => params[:company_id]), :class => "btn btn-warning " %> 
-              <%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+              <%= link_to 'Edit', edit_company_contact_path(contact.company, contact), :class => "btn btn-warning " %> 
+              <%= link_to 'Destroy', [contact.company, contact], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
             </div>
           </div>
       </div>

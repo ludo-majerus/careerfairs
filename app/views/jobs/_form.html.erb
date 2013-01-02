@@ -1,4 +1,5 @@
-<%= form_for(@job) do |f| %>
+<%= form_for(@job, :html => { :class => "form-horizontal"}) do |f| %>
+
   <% if @job.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
@@ -11,15 +12,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :companytoevent_id %><br />
-    <%= f.number_field :companytoevent_id %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="control-group">
+    <%= f.label :job_title, :class => "control-label", :for => "job_title" %>
+    <div class="controls">
+      <%= f.text_field :title, :placeholder => 'Job title' %>
+    </div>
+  </div>  
+
+  <div class="control-group">
+    <%= f.label :job_category, :class => "control-label", :for => "job_category" %>
+    <div class="controls">
+      <%= f.text_field :category, :placeholder => 'Job category' %>
+    </div>
+  </div>  
+
+  <div class="control-group">
+    <%= f.label :job_experience, :class => "control-label", :for => "job_experience" %>
+    <div class="controls">
+      <%= f.text_field :experience, :placeholder => 'Job experience' %>
+    </div>
+  </div>  
+
+  <%= f.hidden_field :companytoevent_id, :value => params[:companytoevent_id] %>
+  <%= f.submit :class => "btn btn-primary btn-normal" %>
+
 <% end %>

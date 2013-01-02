@@ -1,5 +1,5 @@
 
-<%= form_for(@event) do |f| %>
+<%= form_for(@event, :html => { :class => "form-horizontal"}) do |f| %>
 
   <% if @event.errors.any? %>
     <div id="error_explanation">
@@ -13,41 +13,79 @@
     </div>
   <% end %>
 
-  <label id="event_address"> <%= f.text_field :address, :class => 'span10', :placeholder => 'Event address' %> </label> 
-  <label id="event_city"> <%= f.text_field :city, :class => 'span10', :placeholder => 'Event city' %> </label> 
-  
-  <hr />
-  
-  date_event: <%= date_select("event", "date_event") %> <br />
-  time_start: <%= f.text_field :time_start, :placeholder => 'Time start' %> <br />
-  time_end: <%= f.text_field :time_end, :placeholder => 'Time end' %> <br />
 
-  <hr />
-  
-  Subscription open:
-  <label id="event_subscription_open_yes"><%= radio_button("event", "subscription_open", true) %> Yes</label> 
-  <label id="event_subscription_open_no"><%= radio_button("event", "subscription_open", false) %> No</label> 
-  <br />
-  List customer open:
-  <label id="event_list_customers_open_yes"><%= radio_button("event", "list_customers_open", true) %> Yes</label> 
-  <label id="event_slist_customers_open_no"><%= radio_button("event", "list_customers_open", false) %> No</label> 
+  <div class="control-group">
+    <%= label_tag :address, nil, :class => "control-label", :for => "address" %>
+    <div class="controls">
+      <%= f.text_field :address, :placeholder => 'Adress of the Event' %>
+    </div>
+    <%= label_tag :city, nil, :class => "control-label", :for => "city" %>
+    <div class="controls">
+      <%= f.text_field :city, :placeholder => 'City of the Event' %>
+    </div>
+  </div>
 
-  <hr />
-  
-  <label id="event_url_catalog"><%= f.text_field :url_catalog, :class => 'span10', :placeholder => 'Url du catalogue' %></label> 
-  <label id="event_url_technical_info"> <%= f.text_field :url_technical_info, :class => 'span10', :placeholder => 'url_technical_info' %> </label> 
-  <label id="event_url_event_plan"> <%= f.text_field :url_event_plan, :class => 'span10', :placeholder => 'url_event_plan' %> </label> 
+  <div class="control-group">
+    <%= label_tag :date_event, nil, :class => "control-label", :for => "date_event" %>
+    <div class="controls">
+      <%= date_select("event", "date_event") %>
+    </div>
+    <%= label_tag :time_start, nil, :class => "control-label", :for => "time_start" %>
+    <div class="controls">
+      <%= f.text_field :time_start, :placeholder => 'Time start' %>
+    </div>
+    <%= label_tag :time_end, nil, :class => "control-label", :for => "time_end" %>
+    <div class="controls">
+      <%= f.text_field :time_end, :placeholder => 'Time end' %>
+    </div>
+  </div>
 
-  <hr />
-  date_end_customers: <%= date_select("event", "date_end_customers", :order => [:day, :month, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' }) %> <br />
-  date_end_badges: <%= date_select("event", "date_end_badges", :order => [:day, :month, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' }) %> <br />
-  
+  <div class="control-group">
+    <%= label_tag :subscription_open, nil, :class => "control-label", :for => "subscription_open" %>
+    <div class="controls">
+      <label class="radio"><%= radio_button("event", "subscription_open", true) %> Yes </label>
+      <label class="radio"><%= radio_button("event", "subscription_open", false) %> No </label>
+    </div>
+  </div>
 
-  <%= f.submit :class => "btn btn-primary btn-normal" %>
+  <div class="control-group">
+    <%= label_tag :list_customers_open, nil, :class => "control-label", :for => "list_customers_open" %>
+    <div class="controls">
+      <label class="radio"><%= radio_button("event", "list_customers_open", true) %> Yes </label>
+      <label class="radio"><%= radio_button("event", "list_customers_open", false) %> No </label>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= label_tag :url_catalog, nil, :class => "control-label", :for => "url_catalog" %>
+    <div class="controls">
+      <%= f.text_field :url_catalog, :placeholder => 'Url of Catalog' %>
+    </div>
+    <%= label_tag :url_technical_info, nil, :class => "control-label", :for => "url_technical_info" %>
+    <div class="controls">
+      <%= f.text_field :url_technical_info, :placeholder => 'Url of technical information' %>
+    </div>
+    <%= label_tag :url_event_plan, nil, :class => "control-label", :for => "url_event_plan" %>
+    <div class="controls">
+      <%= f.text_field :url_event_plan, :placeholder => 'Url for the plan of Event' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= label_tag :date_end_customers, nil, :class => "control-label", :for => "date_end_customers" %>
+    <div class="controls">
+      <%= date_select("event", "date_end_customers", :order => [:day, :month, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' }) %>
+    </div>
+    <%= label_tag :date_end_badges, nil, :class => "control-label", :for => "date_end_badges" %>
+    <div class="controls">
+      <%= date_select("event", "date_end_badges", :order => [:day, :month, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' }) %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit :class => "btn btn-primary btn-normal" %>
+    </div>
+  </div>
 
 <% end %> 
-
-<% 
-    # t.time     "time_start"
-    # t.time     "time_end"
-%>

@@ -1,36 +1,36 @@
-<pre><%= @resultJSON %></pre>
 
-<% @resultJSON.parsed_response["ResponseFeedAPI"]["FeedItems"].each do |item| %>
-  <%= item %> <hr />
-  <% item.each do |key,value| %>
-    <b><%= key %></b> : <%= value %> <br />
+<div class="container-fluid">
+
+  <%= link_to 'New Job', new_companytoevent_job_path, :class => "btn btn-primary" %>
+
+  <br /><br /><br />
+
+  <table class="table">
+    <tr>
+      <th>Job Title</th>
+      <th>Company</th>
+      <th>Event</th>
+      <th>Info</th>
+      <th>Actions</th>
+    </tr>
+
+  <% @jobs.each do |job| %>
+    <tr>
+      <td><%= job.title %></td>
+      <td><%= job.company.name %></td>
+      <td><%= job.event.city %> / <%= job.event.date_event %></td>
+      <td>
+        Experience: <%= job.experience %> <br /> 
+        Category: <%= job.category %>
+      </td>
+      <td>
+        <%= link_to 'Edit', edit_companytoevent_job_path(job.companytoevent.id, job.id) %> 
+        <%= link_to 'Destroy', [job.companytoevent, job], method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
   <% end %>
+  </table>
 
-  <hr /><hr />
-<% end %>
+  <br />
 
-<h1>Listing jobs</h1>
-
-<table>
-  <tr>
-    <th>Companytoevent</th>
-    <th>Title</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @jobs.each do |job| %>
-  <tr>
-    <td><%= job.companytoevent_id %></td>
-    <td><%= job.title %></td>
-    <td><%= link_to 'Show', job %></td>
-    <td><%= link_to 'Edit', edit_job_path(job) %></td>
-    <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Job', new_job_path %>
+</div>

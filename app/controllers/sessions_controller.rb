@@ -1,20 +1,24 @@
 class SessionsController < ApplicationController
 
   def login
+    #ContactMailer.welcome_email.deliver
   end
 
   # POST /sessions/create
   def create
-      user = Contact.find_by_email(params[:email]) 
-      if user && user.authenticate(params[:password]) 
-        session[:current_user_authenticated] = user.id
-        if user.isadmin 
-          session[:current_user_admin] = user.isadmin
+
+      contact = Contact.find_by_email(params[:email]) 
+      if contact && contact.authenticate(params[:password]) 
+
+        session[:current_user_authenticated] = contact.id
+
+        if contact.isadmin 
+          session[:current_user_admin] = contact.isadmin
         end
         redirect_to "/", notice: 'You are now logged in'
       else
         flash[:error] = 'The login / password is not correct'
-        render 'new'
+        render 'login'
       end
   end
 

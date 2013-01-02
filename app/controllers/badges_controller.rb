@@ -1,16 +1,10 @@
 class BadgesController < ApplicationController
   # GET /badges
   def index
-    @badges = Badge.all
+    @badges = Badge.where("companytoevent_id = '" + params[:companytoevent_id].to_s + "'")
     respond_to do |format|
       format.html
-      format.xls 
     end
-  end
-
-  # GET /badges/1
-  def show
-    @badge = Badge.find(params[:id])
   end
 
   # GET /badges/new
@@ -28,7 +22,7 @@ class BadgesController < ApplicationController
     @badge = Badge.new(params[:badge])
 
     if @badge.save
-      redirect_to @badge, notice: 'Badge was successfully created.'
+      redirect_to companytoevent_badges_path @badge.companytoevent_id, notice: 'Badge was successfully created.'
     else
       render action: "new" 
     end
@@ -40,7 +34,7 @@ class BadgesController < ApplicationController
     @badge = Badge.find(params[:id])
 
     if @badge.update_attributes(params[:badge])
-      redirect_to @badge, notice: 'Badge was successfully updated.'
+      redirect_to companytoevent_badges_path @badge.companytoevent_id, notice: 'Badge was successfully updated.'
     else
       render action: "edit" 
     end
@@ -49,8 +43,9 @@ class BadgesController < ApplicationController
   # DELETE /badges/1
   def destroy
     @badge = Badge.find(params[:id])
+    c2e_id = @badge.companytoevent_id
     @badge.destroy
 
-    redirect_to badges_url
+    redirect_to companytoevent_badges_path c2e_id
   end
 end
