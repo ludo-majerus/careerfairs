@@ -1,0 +1,19 @@
+<%= simple_form_for(@guest) do |f| %>
+  <%= f.error_notification %>
+
+	<div>CareerFair :<%=  @event.city + " - " + @event.date_event.to_s %></div>
+	
+  <div class="form-inputs">
+    <%= f.input :firstname %>
+    <%= f.input :lastname %>
+    <%= f.input :email %>
+    <%= f.input :resume %>
+    <%= f.association :event, :selected => @event.id,  :label_method=>:city %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+

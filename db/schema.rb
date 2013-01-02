@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
@@ -95,6 +96,111 @@ ActiveRecord::Schema.define(:version => 20130102132436) do
     t.string   "title"
     t.string   "category"
     t.string   "experience"
+  end
+
+  create_table "sites", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "stands", :force => true do |t|
+    t.integer  "companytoevent_id"
+    t.string   "name"
+    t.string   "size"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "event_id"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "badges", :force => true do |t|
+    t.integer  "companytoevent_id"
+    t.string   "name"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "companies", :force => true do |t|
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "name"
+    t.text     "description"
+    t.string   "address"
+    t.string   "logo"
+    t.string   "website"
+    t.boolean  "formlocked"
+    t.boolean  "badgeslocked"
+    t.integer  "lunch"
+    t.text     "comment"
+  end
+
+  create_table "companytoevents", :force => true do |t|
+    t.integer  "company_id"
+    t.integer  "event_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "stand_size"
+    t.string   "stand_id"
+    t.integer  "lunch"
+    t.integer  "desk"
+    t.integer  "chair"
+    t.integer  "table"
+    t.integer  "trash"
+    t.integer  "clothesrack"
+    t.integer  "shelf"
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.integer  "company_id"
+    t.string   "name"
+    t.string   "login"
+    t.string   "password"
+    t.string   "email"
+    t.string   "phone"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "events", :force => true do |t|
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.boolean  "subscription_open"
+    t.boolean  "list_customers_open"
+    t.string   "address"
+    t.string   "city"
+    t.string   "url_catalog"
+    t.string   "url_technical_info"
+    t.string   "url_event_plan"
+    t.date     "date_end_customers"
+    t.date     "date_end_badges"
+    t.date     "date_event"
+    t.string   "time_start"
+    t.string   "time_end"
+  end
+
+  create_table "guests", :force => true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "email"
+    t.text     "resume"
+    t.integer  "event_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "guests", ["event_id"], :name => "index_guests_on_event_id"
+
+  create_table "jobs", :force => true do |t|
+    t.integer  "companytoevent_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "sites", :force => true do |t|

@@ -1,9 +1,12 @@
 Careerfairs::Application.routes.draw do
 
+  resources :guests
+
   resources :sites
 
   resources :events do
     resources :stands
+    resources :guests
   end
 
   resources :contacts
