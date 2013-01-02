@@ -46507,3 +46507,179 @@ Served asset /bootstrap-tooltip.js - 304 Not Modified (0ms)
 
 Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2013-01-02 14:52:37 +0100
 Served asset /bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date_event > '2013-01-02 13:53:16') ORDER BY created_at LIMIT 1[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" ORDER BY created_at DESC
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" INNER JOIN "companytoevents" ON "companies"."id" = "companytoevents"."company_id" WHERE "companytoevents"."event_id" = 1[0m
+  [1m[35mCompanytoevent Load (0.1ms)[0m  SELECT "companytoevents".* FROM "companytoevents" WHERE "companytoevents"."company_id" = 1 AND (event_id = '1') LIMIT 1
+  Rendered events/index.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 38.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /application.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/badges.css?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /badges.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /companies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.css?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /jobs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sites.css?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /sites.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.css?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /stands.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/badges.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /badges.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /companies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /jobs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sites.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /sites.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stands.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /stands.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2013-01-02 14:53:16 +0100
+Served asset /bootstrap-typeahead.js - 304 Not Modified (0ms)
