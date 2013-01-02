@@ -44,11 +44,11 @@ class GuestsController < ApplicationController
   # POST /guests.json
   def create
     @guest = Guest.new(params[:guest])
-
+    @event = Event.find(@guest.event_id)    
     respond_to do |format|
       if @guest.save
         format.html { redirect_to @guest, notice: 'Guest was successfully created.' }
-        format.json { render json: @guest, status: :created, location: @guest }
+        format.json { render json: @guest, status: :created, location: @guest_event_new }
       else
         format.html { render action: "new" }
         format.json { render json: @guest.errors, status: :unprocessable_entity }
