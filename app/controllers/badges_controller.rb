@@ -1,20 +1,19 @@
 class BadgesController < ApplicationController
   # GET /badges
   def index
+    @badge = Badge.new
+
     @badges = Badge.where("companytoevent_id = '" + params[:companytoevent_id].to_s + "'")
-    respond_to do |format|
-      format.html
-    end
+
   end
 
-  # GET /badges/new
-  def new
-    @badge = Badge.new
-  end
 
   # GET /badges/1/edit
   def edit
     @badge = Badge.find(params[:id])
+    @badges = Badge.where("companytoevent_id = '" + params[:companytoevent_id].to_s + "'")
+
+    render action: "index"
   end
 
   # POST /badges
