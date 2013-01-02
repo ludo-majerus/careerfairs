@@ -8,5 +8,8 @@ class Event < ActiveRecord::Base
 
 	validates :city, :date_event, :presence => true
 	validates :city, :length => { :minimum => 2 }
-
+  
+  def event_name
+      "#{city} - #{date_event.strftime("%d/%m/%Y")}"
+  end 
 end
