@@ -3,15 +3,13 @@ class EventsController < ApplicationController
   # GET /events 
   def index
     @events = Event.order("created_at DESC")
-    if params["event_id"].present?
-      @current_event = Event.find(params["event_id"])
-    else
-      @current_event = Event.where("date_event > ?", DateTime.now).order("created_at").first || Event.first
-    end
+    @event = Event.where("date_event > ?", DateTime.now).order("created_at").first || Event.first
+    render action: "show"
   end
 
   # GET /events/1
   def show
+    @events = Event.order("created_at DESC")
     @event = Event.find(params[:id])
   end
 
@@ -30,7 +28,7 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
 
     if @event.save
-      redirect_to events_url, notice: 'Event was successfully created.' 
+      redirect_to @event, notice: 'Event was successfully created.' 
     else
       render action: "new" 
     end
@@ -40,7 +38,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(params[:event])
-      redirect_to events_url, notice: 'Event was successfully updated.'
+      redirect_to @event, notice: 'Event was successfully updated.'
     else
       render action: "edit" 
     end
