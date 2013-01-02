@@ -1,10 +1,54 @@
 
-<p>
-  <b>ID:</b>
-  <%= @event.id %>
-</p>
+<div class="container-fluid">
 
 
+  <div class="btn-group">
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+      Change Event
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <% @events.each do |ev| %>
+        <li><%= link_to ev.event_name, event_url(ev.id) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <%= link_to 'Create new Event', new_event_path, :class => "btn btn-primary" %>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+  <hr />
+
+  <legend>Event <%= @event.event_name %></legend>
+  <%= link_to 'Update this Event', edit_event_path(@event), :class => "btn btn-warning" %>
+  <%= link_to 'Destroy this Event', @event, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"%>
+
+  <% @event.companies.each do |company| %>
+      <div class="table table-hover">
+        <div class="row-fluid">
+          <div class="span12">
+            <h4><%= company.name %></h4>
+          </div>  
+        </div>
+        <div class="row-fluid">
+          
+          <div class="span9">
+            Notes: <%= company.comment %>
+          </div>
+
+            <div class="span3">
+              <%= link_to 'Edit', edit_company_path(company.id), :class => "btn btn-warning " %> 
+              <% 
+                # Retreive the companytoevent
+                c2e =  company.companytoevents.where("event_id = '" + @event.id.to_s + "'").first 
+              %>
+              <%= link_to 'Badges', companytoevent_badges_path(c2e.id), :class => "btn btn-info " %> 
+              <%= link_to 'Jobs', companytoevent_jobs_path(c2e.id), :class => "btn btn-info " %> 
+            </div>
+        </div>
+        <br />
+        <hr />
+    
+    </div>
+  <% end %>
+
+
+</div>
