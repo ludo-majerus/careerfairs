@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.10'
 gem  'json'
 
 group :development do
 	gem 'sqlite3' 
- 	gem 'better_errors'
- 	gem "binding_of_caller"
+	gem 'better_errors'
+	gem "binding_of_caller"
 end
 
 group :production do

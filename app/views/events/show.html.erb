@@ -1,25 +1,7 @@
 
 <div class="container-fluid">
 
-
-  <div class="btn-group">
-    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-      Change Event
-      <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-      <% @events.each do |ev| %>
-        <li><%= link_to ev.event_name, event_url(ev.id) %></li>
-      <% end %>
-    </ul>
-  </div>
-  <%= link_to 'Create new Event', new_event_path, :class => "btn btn-primary" %>
-
-  <hr />
-
   <legend>Event <%= @event.event_name %></legend>
-  <%= link_to 'Update this Event', edit_event_path(@event), :class => "btn btn-warning" %>
-  <%= link_to 'Destroy this Event', @event, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"%>
 
   <legend>Companies</legend>
   <% @event.companies.each do |company| %>
