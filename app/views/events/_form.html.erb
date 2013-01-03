@@ -1,5 +1,5 @@
 
-<%= form_for(@event, :html => { :class => "form-horizontal"}) do |f| %>
+<%= form_for(@event, :html => { :class => "form-horizontal", :multipart => true}) do |f| %>
 
   <% if @event.errors.any? %>
     <div id="error_explanation">
@@ -57,17 +57,17 @@
   </div>
 
   <div class="control-group">
-    <%= label_tag :url_catalog, nil, :class => "control-label", :for => "url_catalog" %>
+    <%= label_tag :catalog, nil, :class => "control-label", :for => "catalog" %>
     <div class="controls">
-      <%= f.text_field :url_catalog, :placeholder => 'Url of Catalog' %>
+      <%= f.file_field :catalog %>
     </div>
-    <%= label_tag :url_technical_info, nil, :class => "control-label", :for => "url_technical_info" %>
+    <%= label_tag :technical_info, nil, :class => "control-label", :for => "technical_info" %>
     <div class="controls">
-      <%= f.text_field :url_technical_info, :placeholder => 'Url of technical information' %>
+      <%= f.file_field :technical_info %>
     </div>
-    <%= label_tag :url_event_plan, nil, :class => "control-label", :for => "url_event_plan" %>
+    <%= label_tag :event_plan, nil, :class => "control-label", :for => "event_plan" %>
     <div class="controls">
-      <%= f.text_field :url_event_plan, :placeholder => 'Url for the plan of Event' %>
+      <%= f.file_field :event_plan %>
     </div>
   </div>
 
