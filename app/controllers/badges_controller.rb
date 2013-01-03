@@ -1,10 +1,9 @@
 class BadgesController < ApplicationController
   # GET /badges
   def index
+    @companytoevent = Companytoevent.find(params[:companytoevent_id])
     @badge = Badge.new
-
     @badges = Badge.where("companytoevent_id = '" + params[:companytoevent_id].to_s + "'")
-
   end
 
 

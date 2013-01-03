@@ -21,8 +21,9 @@ Careerfairs::Application.routes.draw do
     resources :events
   end
 
-  resources :badges
-  resources :jobs
+  resources :badges, :only => [:destroy, :update]
+  resources :jobs, :only => [:destroy, :update]
+  resources :stands, :only => [:destroy, :update]
 
   match 'sessions/logout' => 'sessions#logout'
   match 'sessions/new' => 'sessions#login'

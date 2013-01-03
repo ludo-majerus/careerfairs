@@ -1,3 +1,6 @@
 class Stand < ActiveRecord::Base
-  attr_accessible :companytoevent_id, :name, :size
+	belongs_to :event
+	belongs_to :company
+	attr_accessible :company_id, :event_id, :name, :size
+	validates :event_id, :name, :size, :presence => true
 end

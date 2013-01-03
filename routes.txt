@@ -82,20 +82,6 @@ edit_companytoevent_event GET    /companytoevents/:companytoevent_id/events/:id/
            companytoevent GET    /companytoevents/:id(.:format)                                companytoevents#show
                           PUT    /companytoevents/:id(.:format)                                companytoevents#update
                           DELETE /companytoevents/:id(.:format)                                companytoevents#destroy
-                   badges GET    /badges(.:format)                                             badges#index
-                          POST   /badges(.:format)                                             badges#create
-                new_badge GET    /badges/new(.:format)                                         badges#new
-               edit_badge GET    /badges/:id/edit(.:format)                                    badges#edit
-                    badge GET    /badges/:id(.:format)                                         badges#show
-                          PUT    /badges/:id(.:format)                                         badges#update
-                          DELETE /badges/:id(.:format)                                         badges#destroy
-                     jobs GET    /jobs(.:format)                                               jobs#index
-                          POST   /jobs(.:format)                                               jobs#create
-                  new_job GET    /jobs/new(.:format)                                           jobs#new
-                 edit_job GET    /jobs/:id/edit(.:format)                                      jobs#edit
-                      job GET    /jobs/:id(.:format)                                           jobs#show
-                          PUT    /jobs/:id(.:format)                                           jobs#update
-                          DELETE /jobs/:id(.:format)                                           jobs#destroy
           sessions_logout        /sessions/logout(.:format)                                    sessions#logout
              sessions_new        /sessions/new(.:format)                                       sessions#login
                  sessions POST   /sessions(.:format)                                           sessions#create

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130103104246) do
+ActiveRecord::Schema.define(:version => 20130103154349) do
 
   create_table "badges", :force => true do |t|
     t.integer  "companytoevent_id"
@@ -126,11 +126,12 @@ ActiveRecord::Schema.define(:version => 20130103104246) do
   end
 
   create_table "stands", :force => true do |t|
-    t.integer  "companytoevent_id"
     t.string   "name"
     t.string   "size"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "company_id"
+    t.integer  "event_id"
   end
 
   create_table "subscriptions", :force => true do |t|

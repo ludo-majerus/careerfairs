@@ -1,4 +1,5 @@
-<%= form_for(@stand) do |f| %>
+<%= form_for [@event, @stand], :html => { :class => "form-inline"} do |f| %>
+
   <% if @stand.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@stand.errors.count, "error") %> prohibited this stand from being saved:</h2>
@@ -10,20 +11,20 @@
       </ul>
     </div>
   <% end %>
+  
+  <%= f.hidden_field :event_id, :value => params[:event_id] %>
 
-  <div class="field">
-    <%= f.label :companytoevent_id %><br />
-    <%= f.number_field :companytoevent_id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :size %><br />
-    <%= f.text_field :size %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.text_field :name, :placeholder => 'Identifier' %>
+      <%= f.text_field :size, :placeholder => 'Size' %>
+      <% if not @companies.nil? %>
+          <%=select_tag "companies", options_from_collection_for_select(@companies, "id", "name"), :prompt => "Select company" %>
+      <% end %>
+      <%= f.submit :class => "btn btn-primary btn-small" %>
+      <%= link_to 'Cancel', event_stands_path, :class => "btn btn-small" %>
+    </div>
+  </div>  
+
+
 <% end %>

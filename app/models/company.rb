@@ -1,5 +1,6 @@
 class Company < ActiveRecord::Base
 	has_many :contacts
+	has_many :stands
 	has_many :companytoevents
 	has_many :events, :through => :companytoevents
 	has_many :badges, :through => :companytoevents

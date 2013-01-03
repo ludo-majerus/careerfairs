@@ -1,83 +1,50 @@
 class StandsController < ApplicationController
   # GET /stands
-  # GET /stands.json
   def index
-    @stands = Stand.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @stands }
-    end
-  end
-
-  # GET /stands/1
-  # GET /stands/1.json
-  def show
-    @stand = Stand.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @stand }
-    end
-  end
-
-  # GET /stands/new
-  # GET /stands/new.json
-  def new
+    @event = Event.find(params[:event_id])
+    @companies = @companies = Company.where(["id in (select company_id from companytoevents where event_id = ?)", params[:event_id]])
     @stand = Stand.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @stand }
-    end
+    @stands = Stand.where("event_id = '" + params[:event_id].to_s + "'")
   end
+
 
   # GET /stands/1/edit
   def edit
     @stand = Stand.find(params[:id])
+    @stands = Stand.where("event_id = '" + params[:event_id].to_s + "'")
+
+    render action: "index"
   end
 
   # POST /stands
-  # POST /stands.json
   def create
     @stand = Stand.new(params[:stand])
 
-    respond_to do |format|
-      if @stand.save
-        format.html { redirect_to @stand, notice: 'Stand was successfully created.' }
-        format.json { render json: @stand, status: :created, location: @stand }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @stand.errors, status: :unprocessable_entity }
-      end
+    if @stand.save
+      redirect_to event_stands_path @stand.event_id, notice: 'Stand was successfully created.'
+    else
+      render action: "new" 
     end
+    
   end
 
   # PUT /stands/1
-  # PUT /stands/1.json
   def update
     @stand = Stand.find(params[:id])
 
-    respond_to do |format|
-      if @stand.update_attributes(params[:stand])
-        format.html { redirect_to @stand, notice: 'Stand was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @stand.errors, status: :unprocessable_entity }
-      end
+    if @stand.update_attributes(params[:stand])
+      redirect_to event_stands_path @stand.event_id, notice: 'Stand was successfully updated.'
+    else
+      render action: "edit" 
     end
   end
 
   # DELETE /stands/1
-  # DELETE /stands/1.json
   def destroy
     @stand = Stand.find(params[:id])
+    c2e_id = @stand.event_id
     @stand.destroy
 
-    respond_to do |format|
-      format.html { redirect_to stands_url }
-      format.json { head :no_content }
-    end
+    redirect_to event_stands_path c2e_id
   end
 end

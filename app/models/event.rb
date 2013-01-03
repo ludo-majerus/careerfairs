@@ -4,6 +4,7 @@ class Event < ActiveRecord::Base
 	has_many :badges, :through => :companytoevents
 	has_many :jobs, :through => :companytoevents
 	has_many :guests
+	has_many :stands
 	attr_accessible :city, :address, :date_event, :time_start, :time_end, :subscription_open, :list_customers_open, :date_end_badges, :date_end_customers, :url_event_plan, :url_catalog, :url_technical_info, :catalog, :technical_info, :event_plan
 
 	has_attached_file :catalog, :styles => { :medium => "300x300>", :thumb => "100x100>" }
