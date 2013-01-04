@@ -14,3 +14,19 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+jQuery.ajaxSetup({ 
+  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+})
+
+$(document).ready(function() {
+ 	$("#guest_event_id").change(function() {
+	 	idEvent = $("#guest_event_id").val();
+	 	var data = null;
+	 	$.getJSON('/events/'+idEvent+'.json',function(data)
+	 	{
+	 		console.log(data);  
+	 		
+	 	 	$("#eventName").html(data.event_name); 
+	 	}) 	
+  	})
+})

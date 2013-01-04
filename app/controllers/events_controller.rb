@@ -10,6 +10,10 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     session[:current_event] = @event.id
+    respond_to do |format|
+      format.html
+      format.json { render json: @event }
+    end
   end
 
   # GET /events/new

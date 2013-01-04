@@ -17,4 +17,10 @@ class Event < ActiveRecord::Base
   def event_name
       "#{city} - #{date_event.strftime("%d/%m/%Y")}"
   end 
+  
+  def to_json(options = {})
+    options[:methods] = :event_name;
+    super(options)
+  end
+  
 end

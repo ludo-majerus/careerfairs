@@ -20,7 +20,7 @@ class GuestsController < ApplicationController
       format.json { render json: @guest }
     end
   end
-
+  
   # GET /guests/new
   # GET /guests/new.json
   def new

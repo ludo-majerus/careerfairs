@@ -1,17 +1,17 @@
 <%= simple_form_for(@guest) do |f| %>
-  <%= f.error_notification %>
+<%= f.error_notification %>
  
 
-  <div>CareerFair : <%=  @event.event_name %></div>
+  <div class="label">CareerFair : <span id="eventName"><%=  @event.event_name %></span></div>
 	
   <div class="form-inputs">
     <%= f.input :firstname %>
     <%= f.input :lastname %>
     <%= f.input :email, :as => :email %>
-    <%= f.input :resume, :hint => "At least 150 characters"  %>
+    <%= f.input :resume, :hint => "At least 150 characters" %>
     <%= f.association :event, :selected => @event.id,:label_method=> :event_name %>
   </div>
-
+	
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
