@@ -20,6 +20,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'will_paginate', '~> 3.0.0'
 gem "meta_search"
