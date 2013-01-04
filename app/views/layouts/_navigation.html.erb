@@ -30,7 +30,8 @@
               <li><%= link_to "Destroy this Event", Event.find(session[:current_event]), method: :delete, data: { confirm: 'Are you sure?' }, :class=> "text-warning" %></li>
               <li class="divider"></li>
 
-              <li><%= link_to "Companies", event_companies_path(session[:current_event]) %></li>
+              <li class="nav-header">Companies</li>
+              <li><%= link_to "Manage Companies", event_companies_path(session[:current_event]) %></li>
               <li></li>
               <li class="divider"></li>
 
