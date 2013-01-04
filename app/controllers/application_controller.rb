@@ -9,7 +9,9 @@ class ApplicationController < ActionController::Base
 	end
 
 	def select_event
-		if session[:current_event].nil?
+		if params[:event_id].present?
+			session[:current_event] = params[:event_id]
+		elsif session[:current_event].nil?
 		    pickOneEvent = Event.where("date_event > ?", DateTime.now).order("created_at").first || Event.first
 		    session[:current_event] = pickOneEvent.id
 		end

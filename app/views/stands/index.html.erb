@@ -1,8 +1,17 @@
+
 <%= render 'form' %>
+<br />
 
 <div class="container-fluid">
 
-  <br /><br /><br />
+  <div class="row-fluid">
+    
+    <div class="span11"></div>
+    <div class="span1 left"><i class='icon-share-alt'></i>
+      <%= link_to "xls", event_stands_url(session[:current_event], :format => "xls") %>
+    </div>
+  </div>
+
 
   <table class="table">
     <tr>

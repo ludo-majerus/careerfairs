@@ -5,6 +5,11 @@ class StandsController < ApplicationController
     @companies = @companies = Company.where(["id in (select company_id from companytoevents where event_id = ?)", params[:event_id]])
     @stand = Stand.new
     @stands = Stand.where("event_id = '" + params[:event_id].to_s + "'")
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xls 
+    end
   end
 
 

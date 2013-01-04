@@ -6,7 +6,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <%= link_to "CB Careerfairs", root_path, :class => 'brand' %>
+      <%= link_to "CB Careerfairs - " + Event.find(session[:current_event]).event_name, root_path, :class => 'brand' %>
 
       <div class="nav-collapse">
         <ul class="nav">
@@ -30,7 +30,7 @@
               <li><%= link_to "Destroy this Event", Event.find(session[:current_event]), method: :delete, data: { confirm: 'Are you sure?' }, :class=> "text-warning" %></li>
               <li class="divider"></li>
 
-              <li><a href="#">Companies</a></li>
+              <li><%= link_to "Companies", event_companies_path(session[:current_event]) %></li>
               <li></li>
               <li class="divider"></li>
 
@@ -47,7 +47,6 @@
 
               <li class="nav-header">Stands</li>
               <li><%= link_to "Manage Stands", event_stands_url(session[:current_event]) %></li>
-              <li><%= link_to "Exports Stands", event_stands_url(session[:current_event], :format => "xls") %></li>
               <li class="divider"></li>
 
               <li class="nav-header">Manage Events</li>

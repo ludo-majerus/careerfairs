@@ -7,6 +7,7 @@ Careerfairs::Application.routes.draw do
   resources :events do
     resources :stands
     resources :guests
+    resources :companies, :only => [:index]
   end
 
   resources :contacts
