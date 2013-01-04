@@ -4,8 +4,8 @@ $(document).ready(function() {
 	    var data = null;
 	    $.getJSON('/events/'+idEvent+'.json',function(data)
 	    { 
-	      $("#eventName").fadeToggle("slow", "linear");    
-	      $("#eventName").html(data.event_name); 
+	      $("#eventLabel").effect( "bounce", "slow" )
+   		  $("#eventName").html(data.event_name); 
 	    })  
     })
 })

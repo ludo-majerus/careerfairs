@@ -21,7 +21,7 @@ class GuestsController < ApplicationController
     end
   end
   
-  # GET /guests/new
+ # GET /guests/new
   # GET /guests/new.json
   def new
     @guest = Guest.new
