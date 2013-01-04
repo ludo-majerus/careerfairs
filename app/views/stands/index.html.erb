@@ -1,27 +1,33 @@
-<h1>Listing stands</h1>
+<%= render 'form' %>
 
-<table>
-  <tr>
-    <th>Companytoevent</th>
-    <th>Name</th>
-    <th>Size</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="container-fluid">
 
-<% @stands.each do |stand| %>
-  <tr>
-    <td><%= stand.companytoevent_id %></td>
-    <td><%= stand.name %></td>
-    <td><%= stand.size %></td>
-    <td><%= link_to 'Show', stand %></td>
-    <td><%= link_to 'Edit', edit_stand_path(stand) %></td>
-    <td><%= link_to 'Destroy', stand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+  <br /><br /><br />
 
-<br />
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Company</th>
+      <th>Event</th>
+      <th>Actions</th>
+    </tr>
 
-<%= link_to 'New Stand', new_stand_path %>
+  <% @stands.each do |stand| %>
+    <tr>
+      <td><%= stand.id %>. <%= stand.name %></td>
+      <td>
+        <% if stand.company %>
+          <%= stand.company.name %>
+        <% end %>
+      </td>
+      <td><%= stand.event.city %> / <%= stand.event.date_event %></td>
+      <td>
+        <%= link_to 'Edit', edit_event_stand_path(stand.event.id, stand.id) %> 
+        <%= link_to 'Destroy', [stand.event, stand], method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+
+  </table>
+
+</div>

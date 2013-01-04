@@ -1,4 +1,4 @@
-<header class="navbar navbar-fixed-top">
+<header class="navbar navbar-inverse navbar-static-top">
   <nav class="navbar-inner">
     <div class="container">
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -11,10 +11,59 @@
       <div class="nav-collapse">
         <ul class="nav">
 
-          <li class=""><a href="/events"><%= t(:manage_events)%></a></li>
+          <li class="dropdown">
+            <a href="/events" class="dropdown-toggle" data-toggle="dropdown"><%= t(:manage_events)%> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+
+              <li class="dropdown-submenu">
+                <a tabindex="-1" href="<%= event_path(session[:current_event]) %>">
+                  <i class="icon-home"></i> <%= Event.find(session[:current_event]).event_name %></a>
+                <ul class="dropdown-menu">
+                  <% @events.each do |ev| %>
+                    <li><%= link_to ev.event_name, event_url(ev.id) %></li>
+                  <% end %>
+                </ul>
+              </li>
+              <li></li>
+              <li><%= link_to "Update this Event", edit_event_url(session[:current_event]) %></li>
+              <li><%= link_to "Manage the documents", event_url(session[:current_event]) %></li>
+              <li><%= link_to "Destroy this Event", Event.find(session[:current_event]), method: :delete, data: { confirm: 'Are you sure?' }, :class=> "text-warning" %></li>
+              <li class="divider"></li>
+
+              <li><a href="#">Companies</a></li>
+              <li></li>
+              <li class="divider"></li>
+
+              <li class="nav-header">Guests</li>
+              <li><%= link_to "Validation of guests", event_guests_path(session[:current_event])%></li>
+              <li><%= link_to "Export as Excel", event_guests_path(session[:current_event], :format => "xls")%></li>
+              <li class="divider"></li>
+
+              <li class="nav-header">Badges</li>
+              <li><%= link_to "Manage Badges", "#" %></li>
+              <li><%= link_to "Exports Badges", "#"%></li>
+              <li class="divider"></li>
+
+
+              <li class="nav-header">Stands</li>
+              <li><%= link_to "Manage Stands", event_stands_url(session[:current_event]) %></li>
+              <li><%= link_to "Exports Stands", event_stands_url(session[:current_event], :format => "xls") %></li>
+              <li class="divider"></li>
+
+              <li class="nav-header">Manage Events</li>
+              <li><%= link_to "Create a new Event", new_event_path%></li>
+
+            </ul>
+          </li>
           <li class="divider-vertical"></li>
 
           <li class=""><a href="/companies"><%= t(:manage_companies)%></a></li>
+          <li class="divider-vertical"></li>
+
+          <li class=""><a href="/mails"><%= t(:manage_mails)%></a></li>
+          <li class="divider-vertical"></li>
+
+          <li class=""><a href="/htmlpages"><%= t(:manage_html_pages)%></a></li>
           <li class="divider-vertical"></li>
 
           <li class="">
@@ -34,9 +83,14 @@
         </ul>
       </div>
 
-
-
-
     </div>
   </nav>
 </header>
+
+<ul class="breadcrumb">
+  <li><a href="/">Home</a> <span class="divider">/</span></li>
+  <li><%= link_to params["controller"].capitalize, :controller => params["controller"], :action => "index" %> </li>
+  <% if params["action"] != "index" %>
+    <li class="active"><span class="divider">/</span><%= link_to params["action"].capitalize, :controller => params["controller"], :action => params["action"] %></li>
+  <% end %>
+</ul>

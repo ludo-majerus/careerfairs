@@ -1,4 +1,4 @@
-<%= form_for(@badge, :html => { :class => "form-inline"}) do |f| %>
+<%= form_for [@companytoevent, @badge], :html => { :class => "form-inline"} do |f| %>
 
   <% if @badge.errors.any? %>
     <div id="error_explanation">

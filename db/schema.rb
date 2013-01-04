@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130102132436) do
+ActiveRecord::Schema.define(:version => 20130103154349) do
 
   create_table "badges", :force => true do |t|
     t.integer  "companytoevent_id"
@@ -72,20 +72,29 @@ ActiveRecord::Schema.define(:version => 20130102132436) do
   end
 
   create_table "events", :force => true do |t|
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.boolean  "subscription_open"
     t.boolean  "list_customers_open"
     t.string   "address"
     t.string   "city"
-    t.string   "url_catalog"
-    t.string   "url_technical_info"
-    t.string   "url_event_plan"
     t.date     "date_end_customers"
     t.date     "date_end_badges"
     t.date     "date_event"
     t.string   "time_start"
     t.string   "time_end"
+    t.string   "event_plan_file_name"
+    t.string   "event_plan_content_type"
+    t.integer  "event_plan_file_size"
+    t.datetime "event_plan_updated_at"
+    t.string   "technical_info_file_name"
+    t.string   "technical_info_content_type"
+    t.integer  "technical_info_file_size"
+    t.datetime "technical_info_updated_at"
+    t.string   "catalog_file_name"
+    t.string   "catalog_content_type"
+    t.integer  "catalog_file_size"
+    t.datetime "catalog_updated_at"
   end
 
   create_table "guests", :force => true do |t|
@@ -117,11 +126,12 @@ ActiveRecord::Schema.define(:version => 20130102132436) do
   end
 
   create_table "stands", :force => true do |t|
-    t.integer  "companytoevent_id"
     t.string   "name"
     t.string   "size"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "company_id"
+    t.integer  "event_id"
   end
 
   create_table "subscriptions", :force => true do |t|

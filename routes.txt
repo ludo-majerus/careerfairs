@@ -1,3 +1,10 @@
+                   guests GET    /guests(.:format)                                             guests#index
+                          POST   /guests(.:format)                                             guests#create
+                new_guest GET    /guests/new(.:format)                                         guests#new
+               edit_guest GET    /guests/:id/edit(.:format)                                    guests#edit
+                    guest GET    /guests/:id(.:format)                                         guests#show
+                          PUT    /guests/:id(.:format)                                         guests#update
+                          DELETE /guests/:id(.:format)                                         guests#destroy
                     sites GET    /sites(.:format)                                              sites#index
                           POST   /sites(.:format)                                              sites#create
                  new_site GET    /sites/new(.:format)                                          sites#new
@@ -12,6 +19,13 @@
               event_stand GET    /events/:event_id/stands/:id(.:format)                        stands#show
                           PUT    /events/:event_id/stands/:id(.:format)                        stands#update
                           DELETE /events/:event_id/stands/:id(.:format)                        stands#destroy
+             event_guests GET    /events/:event_id/guests(.:format)                            guests#index
+                          POST   /events/:event_id/guests(.:format)                            guests#create
+          new_event_guest GET    /events/:event_id/guests/new(.:format)                        guests#new
+         edit_event_guest GET    /events/:event_id/guests/:id/edit(.:format)                   guests#edit
+              event_guest GET    /events/:event_id/guests/:id(.:format)                        guests#show
+                          PUT    /events/:event_id/guests/:id(.:format)                        guests#update
+                          DELETE /events/:event_id/guests/:id(.:format)                        guests#destroy
                    events GET    /events(.:format)                                             events#index
                           POST   /events(.:format)                                             events#create
                 new_event GET    /events/new(.:format)                                         events#new
@@ -71,4 +85,4 @@ edit_companytoevent_event GET    /companytoevents/:companytoevent_id/events/:id/
           sessions_logout        /sessions/logout(.:format)                                    sessions#logout
              sessions_new        /sessions/new(.:format)                                       sessions#login
                  sessions POST   /sessions(.:format)                                           sessions#create
-                     root        /                                                             companies#index
+                     root        /                                                             events#index
