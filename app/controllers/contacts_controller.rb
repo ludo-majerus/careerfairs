@@ -9,8 +9,7 @@ class ContactsController < ApplicationController
         @contacts = Contact.where("company_id = " + params[:company_id]).paginate(:page => params[:page], :per_page => 10)
       end
     else
-      flash[:error] = 'No company was found.' 
-      #redirect_to companies_url
+      flash[:error] = 'No contact was found.' 
     end
   end
 

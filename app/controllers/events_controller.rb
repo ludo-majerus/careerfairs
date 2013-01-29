@@ -1,9 +1,20 @@
 class EventsController < ApplicationController
-  
+  before_filter :require_admin_right, :except => [:index, :show, :documents]
+  before_filter :require_company_right, :except => [:show]
+
   # GET /events 
   def index
-    @event = Event.find(session[:current_event])
+    if session[:current_user_authenticated].present?
+      @event = Event.where("id in (select event_id from companytoevents where company_id = '?')", session[:company_id]).first
+    else
+      @event = Event.find(session[:current_event])
+    end
     render action: "show"
+  end
+
+  # GET /events/1/documents
+  def documents
+    @event = Event.find(params[:event_id])
   end
 
   # GET /events/1

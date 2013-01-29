@@ -1,9 +1,11 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <b>ID:</b>
   <%= @company.id %>
+  <br />
+  <b>Name:</b>
+  <%= @company.name %>
+  <br />
+  <b>Contacts:</b>
+  <%= @company.contacts.count %>
 </p>
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>

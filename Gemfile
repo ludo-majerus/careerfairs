@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.10'
+gem 'rails', '3.2.11'
 gem  'json'
 
 group :development do
@@ -28,3 +28,5 @@ gem "meta_search"
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem "paperclip", "~> 3.0"
+
+gem 'localeapp'

@@ -1,4 +1,7 @@
 class CompaniesController < ApplicationController
+  before_filter :require_admin_right, :only => [:index, :new, :create, :destroy]
+  before_filter :require_company_right
+
   # GET /companies
   def index
     if params[:search].present?

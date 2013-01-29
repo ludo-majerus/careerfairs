@@ -9,6 +9,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/new
   def new
+    @companytoevent = Companytoevent.find(params[:companytoevent_id])
     @job = Job.new
   end
 
