@@ -1,7 +1,15 @@
 class SessionsController < ApplicationController
+  before_filter :require_admin_right, :only => [:become]
+
+  def become
+    if params[:contact_id].present?
+      session[:current_user_authenticated] = params[:contact_id]
+    end
+    redirect_to "/"
+  end
 
   def login
-    if  session[:current_user_authenticated].present? 
+    if session[:current_user_authenticated].present? 
       redirect_to sessions_logout_path
     end
   end

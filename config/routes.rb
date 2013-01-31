@@ -30,6 +30,7 @@ Careerfairs::Application.routes.draw do
   match 'sessions/logout' => 'sessions#logout'
   match 'sessions/new' => 'sessions#login'
   match 'sessions' => 'sessions#create', :via => :post  
+  match 'sessions/become' => 'sessions#become', :via => :get  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

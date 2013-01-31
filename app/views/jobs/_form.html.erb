@@ -26,11 +26,12 @@
   </div>  
 
   <div class="control-group">
-    <%= f.label :job_experience, :class => "control-label", :for => "job_experience" %>
+    <%= label_tag :job_experience, nil, :class => "control-label", :for => "job_experience" %>
     <div class="controls">
-      <%= f.text_field :experience, :placeholder => 'Job experience' %>
+      <label class="radio"><%= radio_button("job", "experience", "Junior") %> <%= t(:junior) %> </label>
+      <label class="radio"><%= radio_button("job", "experience", "Senior") %> <%= t(:senior) %> </label>
     </div>
-  </div>  
+  </div>
 
   <%= f.hidden_field :companytoevent_id, :value => params[:companytoevent_id] %>
   <%= f.submit :class => "btn btn-primary btn-normal" %>

@@ -9,33 +9,8 @@
 
   <br /><br /><hr /><br />
 
-  <div class="tabbable tabs-above">
-    <div class="tab-content">Filters by Event: </div>
-    
-    <ul class="nav nav-tabs">
-
-      <% if params[:event_id].nil? %>
-        <li class="active">
-      <% else %>
-        <li>
-      <% end %>
-        <%= link_to "All", companies_url %>
-      </li>
-      <% @events.each do |ev| %>
-        <% if params[:event_id].to_s == ev.id.to_s %>
-          <li class="active">
-        <% else %>
-          <li>
-        <% end %>
-
-          <%= link_to ev.city.to_s + ' / ' + ev.date_event.to_s, companies_url + "?event_id=#{ev.id}" %>
-        </li>
-      <% end %>
-    </ul>
-   </div>
-
-
   <legend>Companies</legend>
+
   <% @companies.each do |company| %>
       <div class="table table-hover">
         <div class="row-fluid">
@@ -69,14 +44,6 @@
               <br />
               <%= link_to 'Contacts', company_contacts_url(company.id), :class => "btn btn-info " %> 
 
-              <% 
-                # Retreive the companytoevent
-                c2e =  company.companytoevents.where("event_id = '" + params[:event_id].to_s + "'").first 
-                if not c2e.nil? 
-              %>
-                <%= link_to 'Badges', companytoevent_badges_path(c2e.id), :class => "btn btn-info " %> 
-                <%= link_to 'Jobs', companytoevent_jobs_path(c2e.id), :class => "btn btn-info " %> 
-              <% end %>
             </div>
         </div>
         <br />

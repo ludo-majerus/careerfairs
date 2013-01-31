@@ -29,6 +29,7 @@
           <div class="span3">
             <div class="btn-group" data-toggle="buttons-checkbox" style="text-align: center;">
               <%= link_to 'Edit', edit_company_contact_path(contact.company, contact), :class => "btn btn-warning " %> 
+              <%= link_to 'Become', edit_company_contact_path(contact.company, contact), :class => "btn btn-notice " %> 
               <%= link_to 'Destroy', [contact.company, contact], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
             </div>
           </div>
