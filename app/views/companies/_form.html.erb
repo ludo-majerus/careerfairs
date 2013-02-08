@@ -20,8 +20,10 @@
 
   <br />
   <hr />
-
+  
+  <% if session[:current_user_admin].present? %>
   <label id="company_body"><%= f.text_area :comment, :class => 'span10 tinymce', :placeholder => 'Comment (only for admin)' %> </label> 
+  <% end %>
 
   <%= f.submit :class => "btn btn-primary btn-normal" %>
 

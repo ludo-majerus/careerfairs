@@ -4,6 +4,9 @@ class SessionsController < ApplicationController
   def become
     if params[:contact_id].present?
       session[:current_user_authenticated] = params[:contact_id]
+      flash[:notice] = 'You became contact ' + params[:contact_id]
+    else
+      flash[:error] = 'You can not become contact ' + params[:contact_id]
     end
     redirect_to "/"
   end

@@ -15,7 +15,6 @@ class CompaniesController < ApplicationController
       end
     end
     @events = Event.where("date_event > ?", DateTime.now)
-    
   end
 
   # GET /companies/1

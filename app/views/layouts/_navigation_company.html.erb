@@ -6,13 +6,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <%= link_to Contact.find(session[:current_user_authenticated]).company.name, root_path, :class => 'brand' %>
-
+     <!-- <%= link_to Contact.find(session[:current_user_authenticated]).company.name, root_path, :class => 'brand' %> -->
+<%= t(:hm_span_loc) %>
       <div class="nav-collapse">
         <ul class="nav">
 
           <li class="dropdown">
-            <a href="/events" class="dropdown-toggle" data-toggle="dropdown"> <%= Event.find(session[:current_event]).event_name %> <b class="caret"></b></a>
+            <a href="/events" class="dropdown-toggle brand" data-toggle="dropdown"> <%= Event.find(session[:current_event]).event_name %> <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <% @events.each do |ev| %>
                 <li><%= link_to ev.event_name, event_url(ev.id) %></li>
@@ -23,6 +23,9 @@
           <li class="divider-vertical"></li>
 
           <li><%= link_to "Manage Information", company_path(Contact.find(session[:current_user_authenticated]).company_id) %></li>
+          <li class="divider-vertical"></li>
+
+          <li><%= link_to "Manage features", "#axelle_smia_benaim" %></li>
           <li class="divider-vertical"></li>
 
 
