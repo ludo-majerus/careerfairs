@@ -1,9 +1,0 @@
-<% if params["controller"] != "sessions" %>
-  <ul class="breadcrumb">
-    <li><a href="/">Home</a> <span class="divider">/</span></li>
-    <li><%= link_to params["controller"].capitalize, :controller => params["controller"], :action => "index" %> </li>
-    <% if params["action"] != "index" %>
-      <li class="active"><span class="divider">/</span><%= link_to params["action"].capitalize, :controller => params["controller"], :action => params["action"] %></li>
-    <% end %>
-  </ul>
-<% end %>
