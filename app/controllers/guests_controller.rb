@@ -26,7 +26,9 @@ class GuestsController < ApplicationController
   def new
     @guest = Guest.new
     if params[:event_id].present?
-      @event = Event.find(params[:event_id]) 
+      @event = Event.find(params[:event_id])
+    else
+       @event = Event.find(:first)
     end  
 
     respond_to do |format|
