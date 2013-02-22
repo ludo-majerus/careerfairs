@@ -1,5 +1,5 @@
 
-<%= form_for(@company) do |f| %>
+<%= form_for(@company, :html => { :class => "form-horizontal", :multipart => true}) do |f| %>
 
   <% if @company.errors.any? %>
     <div id="error_explanation">
@@ -13,22 +13,67 @@
     </div>
   <% end %>
 
-  <label id="company_title"> <%= f.text_field :name, :class => 'span10', :placeholder => 'Company name' %> </label> 
-  <label id="company_body"><%= f.text_area :description, :class => 'span10 tinymce', :placeholder => 'Company description' %> </label> 
-  <label id="company_title"> <%= f.text_field :address, :class => 'span10', :placeholder => 'Company address' %> </label> 
-  <label id="company_title"> <%= f.text_field :website, :class => 'span10', :placeholder => 'Company website' %> </label> 
+  <div class="control-group">
+        <label class="control-label" id="company_title"> <strong>Name: </strong></label>  
+        <div class="controls">
+            <%= f.text_field :name, :class => 'span10', :placeholder => 'Company name' %>
+        </div>
+  </div>
+  <div class="control-group">
+        <label class="control-label" id="company_body"><strong>Description: </strong></label> 
+        <div class="controls">  
+          <%= f.text_area :description, :class => 'span10 tinymce', :placeholder => 'Company description' %> 
+        </div>
+  </div>
+  <div class="control-group">
+        <label class="control-label" id="company_title"><strong>Adresse: </strong> </label> 
+        <div class="controls">  
+           <%= f.text_field :address, :class => 'span10', :placeholder => 'Company address' %> 
+        </div>
+  </div>
+  <div class="control-group">
+        <label class="control-label" id="company_website"><strong>Website:  </strong> </label> 
+        <div class="controls">  
+           <%= f.text_field :website, :class => 'span10', :placeholder => 'Company website' %>
+        </div>
+  </div>
 
-  <br />
-  <hr />
-  
   <% if session[:current_user_admin].present? %>
-  <label id="company_body"><%= f.text_area :comment, :class => 'span10 tinymce', :placeholder => 'Comment (only for admin)' %> </label> 
+    <div class="control-group">
+          <label class="control-label" id="company_body"><strong>Comment:  </strong> </label> 
+          <div class="controls">  
+             <%= f.text_area :comment, :class => 'span10 tinymce', :placeholder => 'Comment (only for admin)' %>
+          </div>
+    </div>
   <% end %>
 
-  <%= f.submit :class => "btn btn-primary btn-normal" %>
+  <div class="control-group">
+    <label class="control-label" id="company_logo"><strong>Picture:  </strong> </label> 
+    <div class="controls">  
+      <div class="fileupload fileupload-new" data-provides="fileupload">
+          <div class="input-append">
+            <div class="uneditable-input span3">
+              <i class="icon-file fileupload-exists"></i>
+              <span class="fileupload-preview"></span>
+            </div>
+            <span class="btn btn-file">
+            <span class="fileupload-new">Select file</span>
+            <span class="fileupload-exists">Change</span>
+              <input type="file">
+            </span>
+            <a class="btn fileupload-exists" data-dismiss="fileupload" href="#">Remove</a>
+          </div>
+        </div>
+    </div>
+  </div>
 
+  <div class="control-group">        
+        <div class="controls">  
+           <%= f.submit :class => "btn btn-primary btn-normal" %>
+        </div>
+  </div>
+  
+  
 <% end %> 
 
-<% # I need to add :formlocked, :badgeslocked, :lunch, :logo
-
-%>
+<% # I need to add :formlocked, :badgeslocked, :lunch, :logo%>
