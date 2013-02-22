@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130103154349) do
+ActiveRecord::Schema.define(:version => 20130215104839) do
 
   create_table "badges", :force => true do |t|
     t.integer  "companytoevent_id"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(:version => 20130103154349) do
   end
 
   create_table "companies", :force => true do |t|
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "name"
     t.text     "description"
     t.string   "address"
@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(:version => 20130103154349) do
     t.boolean  "badgeslocked"
     t.integer  "lunch"
     t.text     "comment"
+    t.string   "pic_file_name"
+    t.string   "pic_content_type"
+    t.integer  "pic_file_size"
+    t.datetime "pic_updated_at"
   end
 
   create_table "companytoevents", :force => true do |t|
