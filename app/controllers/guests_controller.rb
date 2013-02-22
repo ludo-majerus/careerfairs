@@ -14,7 +14,7 @@ class GuestsController < ApplicationController
   # GET /guests/1.json
   def show
     @guest = Guest.find(params[:id])
-
+    @event = Event.find(@guest.event_id) 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @guest }
@@ -26,7 +26,9 @@ class GuestsController < ApplicationController
   def new
     @guest = Guest.new
     if params[:event_id].present?
-      @event = Event.find(params[:event_id]) 
+      @event = Event.find(params[:event_id])
+    else
+       @event = Event.find(:first)
     end  
 
     respond_to do |format|

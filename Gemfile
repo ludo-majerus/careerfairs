@@ -27,7 +27,9 @@ gem "meta_search"
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-gem "paperclip", "~> 3.0"
+#gem "paperclip", "~> 3.0"
+gem "paperclip", "= 3.0.4"
+
 
 gem 'localeapp'
 
