@@ -2,8 +2,8 @@ class GuestsController < ApplicationController
   # GET /guests
   # GET /guests.json
   def index
-    @guests = Guest.all
-
+    @guests = Guest.all(:conditions => { :event_id => params[:event_id]})
+    @event = Event.find(params[:event_id])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @guests }

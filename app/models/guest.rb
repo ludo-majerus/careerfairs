@@ -1,6 +1,6 @@
 class Guest < ActiveRecord::Base
   belongs_to :event
-  attr_accessible :email, :firstname, :lastname, :resume, :event_id
+  attr_accessible :email, :firstname, :lastname, :resume, :event_id, :status
   
   validates :email, :firstname, :lastname, :resume, :presence => true
   validates :resume, :length => { :minimum => 10 }
