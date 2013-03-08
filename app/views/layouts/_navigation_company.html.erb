@@ -24,15 +24,14 @@
           <li><%= link_to "Manage Information", company_path(Contact.find(session[:current_user_authenticated]).company_id) %></li>
           <li class="divider-vertical"></li>
 
-          <li><%= link_to "Manage features", "#axelle_smia_benaim" %></li>
+          <!--definit dans le application_helper.erb-->
+          <li><%= link_to "Manage features", companytoevents_path(keys_companyid_and_eventid)%></li>
           <li class="divider-vertical"></li>
 
-
-          <li><%= link_to "Manage Badges", companytoevent_badges_path(Companytoevent.where("company_id = ? and event_id = ?", Contact.find(session[:current_user_authenticated]).company_id, session[:current_event]).first.id) %></li>
+          <li><%= link_to "Manage Badges", companytoevent_badges_path(keys_companyid_and_eventid) %></li>
           <li class="divider-vertical"></li>
 
-
-          <li><%= link_to "Manage Jobs", companytoevent_jobs_path(Companytoevent.where("company_id = ? and event_id = ?", Contact.find(session[:current_user_authenticated]).company_id, session[:current_event]).first.id) %></li>
+          <li><%= link_to "Manage Jobs", companytoevent_jobs_path(keys_companyid_and_eventid) %></li>
           <li class="divider-vertical"></li>
 
           <li class="">

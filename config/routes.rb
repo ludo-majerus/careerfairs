@@ -17,6 +17,8 @@ Careerfairs::Application.routes.draw do
     resources :contacts
   end
 
+  resources :companytoevents
+
   resources :companytoevents do
     resources :badges
     resources :jobs
