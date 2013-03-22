@@ -1,0 +1,99 @@
+<%= form_for(@companytoevent, :html => { :class => "form-horizontal"}) do |f| %>
+
+    <% if @companytoevent.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@companytoevent.errors.count, "error") %> prohibited this feature from being saved:</h2>
+          <ul>
+            <% @companytoevent.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <%= f.hidden_field :companytoevent_id, :value => params[:companytoevent_id] %>
+
+    <div class="control-group">
+      <label class="control-label" id="companytoevent_lunch"> <strong>Lunch: </strong></label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on"><a class="btn btn-mini" id="declunch"><i class="icon-minus"></i></a></span>
+          <%= f.text_field :lunch, :class => 'span1', :placeholder => '0' , :name => 'qtlunch'%>
+          <span class="add-on"><a class="btn btn-mini" id="inclunch"><i class="icon-plus"></i></a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" id="companytoevent_desk"> <strong>Desk: </strong></label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on"><a class="btn btn-mini" id="decdesk"><i class="icon-minus"></i></a></span>
+          <%= f.text_field :desk, :class => 'span1', :placeholder => '0' , :name => 'qtdesk'%>
+          <span class="add-on"><a class="btn btn-mini" id="incdesk"><i class="icon-plus"></i></a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" id="companytoevent_chair"> <strong>Chair: </strong></label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on"><a class="btn btn-mini"  id="decchair"><i class="icon-minus"></i></a></span>
+          <%= f.text_field :chair, :class => 'span1', :placeholder => '0' , :name => 'qtchair'%>
+          <span class="add-on"><a class="btn btn-mini" id="incchair"><i class="icon-plus"></i></a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" id="companytoevent_table"> <strong>Table: </strong></label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on"><a class="btn btn-mini" id="dectable"><i class="icon-minus"></i></a></span>
+          <%= f.text_field :table, :class => 'span1', :placeholder => '0' , :name => 'qttable'%>
+          <span class="add-on"><a class="btn btn-mini" id="inctable"><i class="icon-plus"></i></a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" id="companytoevent_trash"> <strong>Trash: </strong></label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on"><a class="btn btn-mini" id="dectrash"><i class="icon-minus"></i></a></span>
+          <%= f.text_field :trash, :class => 'span1', :placeholder => '0' , :name => 'qttrash'%>
+          <span class="add-on"><a class="btn btn-mini" id="inctrash"><i class="icon-plus"></i></a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" id="companytoevent_clothesrack"> <strong>Clothes rack: </strong></label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on"><a class="btn btn-mini" id="decrack"><i class="icon-minus"></i></a></span>
+          <%= f.text_field :clothesrack, :class => 'span1', :placeholder => '0' , :name => 'qtrack'%>
+          <span class="add-on"><a class="btn btn-mini" id="incrack"><i class="icon-plus"></i></a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" id="shelf"> <strong>Shelf: </strong></label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on"><a class="btn btn-mini" id="decshelf" ><i class="icon-minus"></i></a></span>
+          <%= f.text_field :shelf, :class => 'span1', :placeholder => '0', :name => 'qtshelf' %>
+          <span class="add-on"><a class="btn btn-mini" id="incshelf" href="#"><i class="icon-plus"></i></a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit :class => "btn btn-primary btn-normal" %>
+      </div>
+    </div>
+
+<% end %>
