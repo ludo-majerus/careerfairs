@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130215104839) do
+ActiveRecord::Schema.define(:version => 20130308103123) do
 
   create_table "badges", :force => true do |t|
     t.integer  "companytoevent_id"
@@ -107,8 +107,9 @@ ActiveRecord::Schema.define(:version => 20130215104839) do
     t.string   "email"
     t.text     "resume"
     t.integer  "event_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "status",     :default => 0
   end
 
   add_index "guests", ["event_id"], :name => "index_guests_on_event_id"

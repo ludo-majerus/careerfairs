@@ -2,7 +2,8 @@ class EventsController < ApplicationController
   before_filter :require_admin_right, :except => [:index, :show, :documents]
   before_filter :require_company_right, :except => [:show]
 
-  # GET /events 
+  # GET /events
+  #Gérer le cas de authentifié mais pas de salon
   def index
     if session[:current_user_authenticated].present?
       @event = Event.where("id in (select event_id from companytoevents where company_id = '?')", session[:company_id]).first
@@ -19,7 +20,14 @@ class EventsController < ApplicationController
 
   # GET /events/1
   def show
-    @event = Event.find(params[:id])
+    if params[:id].present?
+      @event = Event.find(params[:id])
+    elsif session[:current_event].present?
+      @event = Event.find(session[:current_event])
+    else
+      @event = Event.first
+    end  
+   
     session[:current_event] = @event.id
     respond_to do |format|
       format.html
