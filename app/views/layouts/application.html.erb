@@ -36,10 +36,13 @@
 
     <br /><br /><br />
     <hr />
-    <code>
-    Session:<%=session%>. <br />
-    Params:<%=params%>.
-    </code>
+    <pre>
+      Session:<%=session%>.
+      Params:<%=params%>.
+      Event : <%=session[:current_event]%>
+      Contact : <%=Contact.find(session[:current_user_authenticated]).id%>
+      Company : <%=Contact.find(session[:current_user_authenticated]).company.id%>
+    </pre>
 
   </body>
 </html>

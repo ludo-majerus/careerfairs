@@ -3,6 +3,7 @@ Careerfairs::Application.routes.draw do
   resources :guests
 
   resources :sites
+  resources :pages
 
   resources :events do
     resources :stands
