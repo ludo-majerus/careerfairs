@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_filter :require_admin_right, :except => [:show]
+
   # GET /pages
   def index
     @pages = Page.all

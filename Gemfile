@@ -4,9 +4,10 @@ gem 'rails', '3.2.11'
 gem  'json'
 
 group :development do
-	gem 'sqlite3' 
-	gem 'better_errors'
-	gem "binding_of_caller", :git => 'git://github.com/banister/binding_of_caller.git'
+  gem 'sqlite3'
+  # gem 'pg'
+#	gem 'better_errors'
+#	gem "binding_of_caller", :git => 'git://github.com/banister/binding_of_caller.git'
 end
 
 group :production do
