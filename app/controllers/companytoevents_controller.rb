@@ -8,6 +8,7 @@ class CompanytoeventsController < ApplicationController
   def index
     @companytoevents = Companytoevent.all
     @stand = Stand.where(:company_id => session[:company_id], :event_id => session[:current_event])  
+  end
 
   # GET /companytoevent/1/edit
   def edit
@@ -64,5 +65,7 @@ class CompanytoeventsController < ApplicationController
       companytoevent.destroy
       redirect_to controller: 'companies', :event_id => event_id, action: 'index'
     end
+
   end
+
 end
