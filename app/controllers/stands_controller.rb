@@ -1,7 +1,10 @@
+#noinspection ALL
 class StandsController < ApplicationController
   # GET /stands
+  #noinspection RailsChecklist01
   def index
     @event = Event.find(params[:event_id])
+    #noinspection RailsChecklist01
     @companies = @companies = Company.where(["id in (select company_id from companytoevents where event_id = ?)", params[:event_id]])
     @stand = Stand.new
     @stands = Stand.where("event_id = '" + params[:event_id].to_s + "'")

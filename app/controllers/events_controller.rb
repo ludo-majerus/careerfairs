@@ -7,7 +7,6 @@ class EventsController < ApplicationController
   def index
     if session[:current_user_authenticated].present?
       @event = Event.where("id in (select event_id from companytoevents where company_id = '?')", session[:company_id]).first
-    else     
     end
     if @event == nil
        @event = Event.find(session[:current_event])

@@ -1,0 +1,13 @@
+<h1>Listing pages</h1>
+
+<% @pages.each do |page| %>
+<h2><%= page.title %></h2>
+    <%= link_to 'Show', page %> - <%= link_to 'Edit', edit_page_path(page) %> - <%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %>
+<pre><%= page.content %></pre>
+<hr />
+<% end %>
+
+
+<br />
+
+<%= link_to 'New Page', new_page_path %>

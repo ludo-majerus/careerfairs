@@ -1,0 +1,33 @@
+<%= form_for(@page) do |f| %>
+  <% if @page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+      <ul>
+      <% @page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="control-group">
+      <label class="control-label" id="page_title"><strong>Title: </strong></label>
+      <div class="controls">
+        <%= f.text_field :title, :placeholder => 'Page title' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" id="page_content"><strong>Content: </strong></label>
+      <div class="controls">
+        <%= f.text_area :content, :class => 'span10 tinymce', :placeholder => 'Page content' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit :class => "btn btn-primary btn-normal" %>
+      </div>
+    </div>
+<% end %>

@@ -4,13 +4,14 @@ gem 'rails', '3.2.11'
 gem  'json'
 
 group :development do
-	gem 'sqlite3' 
-	gem 'better_errors'
-	gem "binding_of_caller"
+  gem 'sqlite3'
+  # gem 'pg'
+#	gem 'better_errors'
+#	gem "binding_of_caller", :git => 'git://github.com/banister/binding_of_caller.git'
 end
 
 group :production do
-	gem 'pg'
+	# gem 'pg'
 end
 
 group :assets do
@@ -27,8 +28,7 @@ gem "meta_search"
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-#gem "paperclip", "~> 3.0"
-gem "paperclip", "= 3.0.4"
+gem "paperclip", "3.1.0"
 
 
 gem 'localeapp'

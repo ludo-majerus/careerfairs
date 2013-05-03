@@ -25,7 +25,7 @@ class JobsController < ApplicationController
     if @job.save
       redirect_to companytoevent_jobs_path @job.companytoevent_id, notice: 'Job was successfully created.'
     else
-      render action: "new" 
+      render action: 'new'
     end
     
   end
@@ -37,7 +37,7 @@ class JobsController < ApplicationController
     if @job.update_attributes(params[:job])
       redirect_to companytoevent_jobs_path @job.companytoevent_id, notice: 'Job was successfully updated.'
     else
-      render action: "edit" 
+      render action: 'edit'
     end
   end
 

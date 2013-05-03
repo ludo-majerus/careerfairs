@@ -8,7 +8,6 @@ class CompanytoeventsController < ApplicationController
   def index
     @companytoevents = Companytoevent.all
     @stand = Stand.where(:company_id => session[:company_id], :event_id => session[:current_event])  
-  end
 
   # GET /companytoevent/1/edit
   def edit
@@ -26,9 +25,9 @@ class CompanytoeventsController < ApplicationController
     @companytoevent = Companytoevent.new
   end
 
-
   # POST /companytoevent
   def create
+   
     params[:companytoevent][:company_id] = session[:company_id]
     params[:companytoevent][:event_id] = session[:current_event]
     @companytoevent = Companytoevent.new(params[:companytoevent])
@@ -40,13 +39,30 @@ class CompanytoeventsController < ApplicationController
     end
   end
 
-  # DELETE /companytoevent/1
+ 
+  # def create
+  #   if params[:company_id].blank? or params[:event_id].blank?
+  #     # Return to previous page
+
+  #   else
+  #     companytoevent = Companytoevent.new
+  #     companytoevent.company_id = params[:company_id]
+  #     companytoevent.event_id = params[:event_id]
+  #     event_id = params[:event_id]
+  #     companytoevent.save
+  #     redirect_to controller: 'companies', :event_id => event_id, action: 'index'
+  #   end
+  # end
+
   def destroy
-    @companytoevent = Companytoevent.find(params[:id])
-    @companytoevent.destroy
+    if params[:id].blank?
+      # Return to previous page
 
-    redirect_to companytoevents_path     
+    else
+      companytoevent = Companytoevent.find(params[:id])
+      event_id = companytoevent.event_id
+      companytoevent.destroy
+      redirect_to controller: 'companies', :event_id => event_id, action: 'index'
+    end
   end
-
-    
 end
