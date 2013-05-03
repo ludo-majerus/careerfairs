@@ -25,13 +25,13 @@
           <li class="divider-vertical"></li>
 
           <!--definit dans le application_helper.erb-->
-          <li><%= link_to "Manage features", companytoevents_path(keys_companyid_and_eventid)%></li>
+          <li><%= link_to "Manage features", companytoevents_path %></li>
           <li class="divider-vertical"></li>
 
-          <li><%= link_to "Manage Badges", companytoevent_badges_path(keys_companyid_and_eventid) %></li>
+          <li><%= link_to "Manage Badges", companytoevent_badges_path("1") %></li>
           <li class="divider-vertical"></li>
 
-          <li><%= link_to "Manage Jobs", companytoevent_jobs_path(keys_companyid_and_eventid) %></li>
+          <li><%= link_to "Manage Jobs", companytoevents_path %></li>
           <li class="divider-vertical"></li>
 
           <li class="">

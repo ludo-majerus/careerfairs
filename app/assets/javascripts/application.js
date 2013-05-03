@@ -17,75 +17,69 @@
 //= require_tree .
 
 
-$(function(){
+$(document).ready(function(){
     $("#inclunch").click(function(){
-        $(":text[name='qtlunch']").val( Number($(":text[name='qtlunch']").val()) + 1 );
+        $(":text[id='companytoevent_lunch']").val( Number($(":text[id='companytoevent_lunch']").val()) + 1 );
     });
     $("#declunch").click(function(){
-        if($(":text[name='qtlunch']").val() >0)
-            $(":text[name='qtlunch']").val( Number($(":text[name='qtlunch']").val()) - 1 );
+        if($(":text[id='companytoevent_lunch']").val() >0)
+             $(":text[id='companytoevent_lunch']").val( Number($(":text[id='companytoevent_lunch']").val()) - 1 );
     });
-});
 
-$(function(){
+
     $("#incdesk").click(function(){
-        $(":text[name='qtdesk']").val( Number($(":text[name='qtdesk']").val()) + 1 );
+        $(":text[id='companytoevent_desk']").val( Number($(":text[id='companytoevent_desk']").val()) + 1 );
     });
     $("#decdesk").click(function(){
-        if($(":text[name='qtdesk']").val() >0)
-            $(":text[name='qtdesk']").val( Number($(":text[name='qtdesk']").val()) - 1 );
+        if($(":text[id='companytoevent_desk']").val() >0)
+            $(":text[id='companytoevent_desk']").val( Number($(":text[id='companytoevent_desk']").val()) - 1 );
     });
-});
 
-$(function(){
+
     $("#incchair").click(function(){
-        $(":text[name='qtchair']").val( Number($(":text[name='qtchair']").val()) + 1 );
+        $(":text[id='companytoevent_chair']").val( Number($(":text[id='companytoevent_chair']").val()) + 1 );
     });
     $("#decchair").click(function(){
-        if($(":text[name='qtchair']").val() >0)
-            $(":text[name='qtchair']").val( Number($(":text[name='qtchair']").val()) - 1 );
+        if($(":text[id='companytoevent_chair']").val() >0)
+            $(":text[id='companytoevent_chair']").val( Number($(":text[id='companytoevent_chair']").val()) - 1 );
     });
-});
 
-$(function(){
+
     $("#inctable").click(function(){
-        $(":text[name='qttable']").val( Number($(":text[name='qttable']").val()) + 1 );
+        $(":text[id='companytoevent_table']").val( Number($(":text[id='companytoevent_table']").val()) + 1 );
     });
     $("#dectable").click(function(){
-        if($(":text[name='qttable']").val() >0)
-            $(":text[name='qttable']").val( Number($(":text[name='qttable']").val()) - 1 );
+        if($(":text[id='companytoevent_table']").val() >0)
+            $(":text[id='companytoevent_table']").val( Number($(":text[id='companytoevent_table']").val()) - 1 );
     });
-});
 
-$(function(){
     $("#inctrash").click(function(){
-        $(":text[name='qttrash']").val( Number($(":text[name='qttrash']").val()) + 1 );
+        $(":text[id='companytoevent_trash']").val( Number($(":text[id='companytoevent_trash']").val()) + 1 );
     });
     $("#dectrash").click(function(){
-        if($(":text[name='qttrash']").val() >0)
-            $(":text[name='qttrash']").val( Number($(":text[name='qttrash']").val()) - 1 );
+        if($(":text[id='companytoevent_trash']").val() >0)
+            $(":text[id='companytoevent_trash']").val( Number($(":text[id='companytoevent_trash']").val()) - 1 );
     });
-});
 
 
-$(function(){
     $("#incrack").click(function(){
-        $(":text[name='qtrack']").val( Number($(":text[name='qtrack']").val()) + 1 );
+        $(":text[id='companytoevent_clothesrack']").val( Number($(":text[id='companytoevent_clothesrack']").val()) + 1 );
     });
     $("#decrack").click(function(){
-        if($(":text[name='qtrack']").val() >0)
-            $(":text[name='qtrack']").val( Number($(":text[name='qtrack']").val()) - 1 );
+        if($(":text[id='companytoevent_clothesrack']").val() >0)
+            $(":text[id='companytoevent_clothesrack']").val( Number($(":text[id='companytoevent_clothesrack']").val()) - 1 );
     });
-});
 
-
-$(function(){
     $("#incshelf").click(function(){
-        $(":text[name='qtshelf']").val( Number($(":text[name='qtshelf']").val()) + 1 );
+        $(":text[id='companytoevent_shelf']").val( Number($(":text[id='companytoevent_shelf']").val()) + 1 );
     });
     $("#decshelf").click(function(){
-        if($(":text[name='qtshelf']").val() >0)
-            $(":text[name='qtshelf']").val( Number($(":text[name='qtshelf']").val()) - 1 );
+        if($(":text[id='companytoevent_shelf']").val() >0)
+            $(":text[id='companytoevent_shelf']").val( Number($(":text[id='companytoevent_shelf']").val()) - 1 );
     });
+
+
 });
+
+
 
