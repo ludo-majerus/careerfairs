@@ -8,12 +8,19 @@
              <%= link_to 'Add Feature', new_companytoevent_path, :class => "btn btn-primary" %>    
           <% end %> 
         </div>
-                  
-        <div class="span4 offset4"><strong>N°Stand : <%= @stand.name  %> - Taille : <%= @stand.size %> </strong></div>
+        
+        <% @stand.each do |s| %>
+          <div class="span4 offset4">
+            <strong>
+                N°Stand : <span class="text-info"><%= s.name %></span> - Taille : <span class="text-info"><%= s.size %></span>
+            </strong>
+          </div>
+        <% end %>              
+        
 
     </div>
 
-    <br/><br/><br/>
+    <br/><br/>
 
       <table class="table">
         <tr>
@@ -49,3 +56,5 @@
 
 <% debug @stand%>
 <% @stand.inspect%>
+
+    

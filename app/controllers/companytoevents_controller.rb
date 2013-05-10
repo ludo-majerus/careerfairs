@@ -8,6 +8,7 @@ class CompanytoeventsController < ApplicationController
   def index
     @companytoevents = Companytoevent.all
     @stand = Stand.where(:company_id => session[:company_id], :event_id => session[:current_event])  
+   
   end
 
   # GET /companytoevent/1/edit
@@ -81,4 +82,4 @@ class CompanytoeventsController < ApplicationController
 
   end
 
-end
+ end
