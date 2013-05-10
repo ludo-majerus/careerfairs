@@ -4,7 +4,7 @@ class Companytoevent < ActiveRecord::Base
   before_save :set_default_chair
   before_save :set_default_table
   before_save :set_default_trash
-  before_save :set_default_trash
+  before_save :set_default_clothesrack
   before_save :set_default_shelf
 
 
@@ -35,7 +35,7 @@ class Companytoevent < ActiveRecord::Base
     self.trash = "0" unless self.trash  
   end
 
-   def set_default_trash
+   def set_default_clothesrack
     self.clothesrack = "0" unless self.clothesrack  
   end
 
