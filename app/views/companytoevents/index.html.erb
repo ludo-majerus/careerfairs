@@ -37,7 +37,7 @@
               <td><%= companytoevent.clothesrack %></td>
               <td><%= companytoevent.shelf%></td>
               <td>
-                <%= link_to 'Edit', companytoevent_path(companytoevent) %>
+                <%= link_to 'Edit', edit_companytoevent_path(companytoevent) %>
                 <%= link_to 'Destroy', [companytoevent], method: :delete, data: { confirm: 'Are you sure?' } %>
               </td>
             </tr>

@@ -78,8 +78,13 @@ $(document).ready(function(){
             $(":text[id='companytoevent_shelf']").val( Number($(":text[id='companytoevent_shelf']").val()) - 1 );
     });
 
+    $('input.span1').bind('keypress', function(e) { 
+        return ( e.which!=8 && e.which!=0 && (e.which<48 || e.which>57)) ? false : true ;
+    })
+
 
 });
+
 
 
 

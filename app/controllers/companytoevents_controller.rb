@@ -39,7 +39,6 @@ class CompanytoeventsController < ApplicationController
       render action: "new"
     end
   end
-
  
   # def create
   #   if params[:company_id].blank? or params[:event_id].blank?
@@ -54,6 +53,20 @@ class CompanytoeventsController < ApplicationController
   #     redirect_to controller: 'companies', :event_id => event_id, action: 'index'
   #   end
   # end
+
+  # PUT /companytoevent/1
+  def update
+    
+    params[:companytoevent][:company_id] = session[:company_id]
+    params[:companytoevent][:event_id] = session[:current_event]
+
+    @companytoevent = Companytoevent.find(params[:id])
+    if @companytoevent.update_attributes(params[:companytoevent])
+      redirect_to companytoevents_path, notice: 'Company was successfully updated.'
+    else
+      render action: "edit" 
+    end
+  end
 
   def destroy
     if params[:id].blank?

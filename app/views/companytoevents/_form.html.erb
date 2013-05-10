@@ -1,10 +1,3 @@
-<script language="javascript">
-var valeur=500;
-function modifier(increment) {
-valeur+=increment;
-document.getElementById('text').value=valeur;
-}
-</script>
 <%= form_for(@companytoevent, :html => { :class => "form-horizontal"}) do |f| %>
 
     <% if @companytoevent.errors.any? %>
@@ -18,12 +11,14 @@ document.getElementById('text').value=valeur;
         </div>
     <% end %>
 
+  <div>
+
     <div class="control-group">
       <label class="control-label" id="companytoevent_lunch"> <strong>Lunch: </strong></label>
       <div class="controls">
         <div class="input-prepend">
           <span class="add-on"><a class="btn btn-mini" id="declunch" ><i class="icon-minus"></i></a></span> 
-          <%= f.text_field :lunch, :class => 'span1', :placeholder => '0' %>
+          <%= f.text_field :lunch, :class => 'span1', :placeholder => '0'  %>
           <span class="add-on"><a class="btn btn-mini" id="inclunch" ><i class="icon-plus"></i></a></span>
         </div>
       </div>
@@ -45,7 +40,7 @@ document.getElementById('text').value=valeur;
       <div class="controls">
         <div class="input-prepend">
           <span class="add-on"><a class="btn btn-mini"  id="decchair"><i class="icon-minus"></i></a></span>
-          <%= f.text_field :chair, :class => 'span1', :placeholder => '0' %>
+          <%= f.text_field :chair, :class => 'span1', :placeholder => '0'  %>
           <span class="add-on"><a class="btn btn-mini" id="incchair"><i class="icon-plus"></i></a></span>
         </div>
       </div>
@@ -56,7 +51,7 @@ document.getElementById('text').value=valeur;
       <div class="controls">
         <div class="input-prepend">
           <span class="add-on"><a class="btn btn-mini" id="dectable"><i class="icon-minus"></i></a></span>
-          <%= f.text_field :table, :class => 'span1', :placeholder => '0' %>
+          <%= f.text_field :table, :class => 'span1', :placeholder => '0'  %>
           <span class="add-on"><a class="btn btn-mini" id="inctable"><i class="icon-plus"></i></a></span>
         </div>
       </div>
@@ -67,7 +62,7 @@ document.getElementById('text').value=valeur;
       <div class="controls">
         <div class="input-prepend">
           <span class="add-on"><a class="btn btn-mini" id="dectrash"><i class="icon-minus"></i></a></span>
-          <%= f.text_field :trash, :class => 'span1', :placeholder => '0' %>
+          <%= f.text_field :trash, :class => 'span1', :placeholder => '0'  %>
           <span class="add-on"><a class="btn btn-mini" id="inctrash"><i class="icon-plus"></i></a></span>
         </div>
       </div>
@@ -78,7 +73,7 @@ document.getElementById('text').value=valeur;
       <div class="controls">
         <div class="input-prepend">
           <span class="add-on"><a class="btn btn-mini" id="decrack"><i class="icon-minus"></i></a></span>
-          <%= f.text_field :clothesrack, :class => 'span1', :placeholder => '0' %>
+          <%= f.text_field :clothesrack, :class => 'span1', :placeholder => '0'  %>
           <span class="add-on"><a class="btn btn-mini" id="incrack"><i class="icon-plus"></i></a></span>
         </div>
       </div>
@@ -89,7 +84,7 @@ document.getElementById('text').value=valeur;
       <div class="controls">
         <div class="input-prepend">
           <span class="add-on"><a class="btn btn-mini" id="decshelf" ><i class="icon-minus"></i></a></span>
-          <%= f.text_field :shelf, :class => 'span1', :placeholder => '0'%>
+          <%= f.text_field :shelf, :class => 'span1', :placeholder => '0'  %>
           <span class="add-on"><a class="btn btn-mini" id="incshelf" href="#"><i class="icon-plus"></i></a></span>
         </div>
       </div>
@@ -101,9 +96,7 @@ document.getElementById('text').value=valeur;
       </div>
     </div>
 
+  </div>
+
 <% end %>
 
-
-<script language="javascript">
-document.getElementById('companytoevent_lunch').value=valeur;
-</script>
