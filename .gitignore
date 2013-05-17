@@ -28,6 +28,11 @@
 *.sql
 *.sqlite
 *.sqlite3
+log/*
+Gemfile.lock
+db/schema.rb
+routes.txt
+
 
 # OS generated files #
 ######################

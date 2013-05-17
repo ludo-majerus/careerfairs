@@ -28,10 +28,10 @@
           <li><%= link_to "Manage features", companytoevents_path %></li>
           <li class="divider-vertical"></li>
 
-          <li><%= link_to "Manage Badges", companytoevent_badges_path("1") %></li>
+          <li><%= link_to "Manage Badges", companytoevent_badges_path(session[:current_companytoevent_id]) %></li>
           <li class="divider-vertical"></li>
 
-          <li><%= link_to "Manage Jobs", companytoevents_path %></li>
+          <li><%= link_to "Manage Jobs", companytoevent_jobs_path(session[:current_companytoevent_id]) %></li>
           <li class="divider-vertical"></li>
 
           <li class="">
