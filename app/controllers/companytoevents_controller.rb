@@ -6,15 +6,24 @@ class CompanytoeventsController < ApplicationController
 
   # GET /companytoevent
   def index
+    @companytoevents =Companytoevent.where(:company_id => session[:company_id], :event_id => session[:current_event])
+    @stand = Stand.where(:company_id => session[:company_id], :event_id => session[:current_event])
+  end
+
+  def list
     @companytoevents = Companytoevent.all
-    @stand = Stand.where(:company_id => session[:company_id], :event_id => session[:current_event])  
-   
+    @sumlunch = Companytoevent.sum(:lunch)
+    @sumdesk = Companytoevent.sum(:desk)
+    @sumchair = Companytoevent.sum(:chair)
+    @sumtable = Companytoevent.sum(:table)
+    @sumtrash = Companytoevent.sum(:trash)
+    @sumclothesrack = Companytoevent.sum(:clothesrack)
+    @sumshelf = Companytoevent.sum(:shelf)
   end
 
   # GET /companytoevent/1/edit
   def edit
     @companytoevent = Companytoevent.find(params[:id])
-    #render action: "index"
   end
 
   # GET /companytoevent/1/edit

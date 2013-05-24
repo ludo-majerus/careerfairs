@@ -7,16 +7,15 @@ class Companytoevent < ActiveRecord::Base
   before_save :set_default_clothesrack
   before_save :set_default_shelf
 
-
   belongs_to :company
   belongs_to :event
   has_many :jobs
   has_many :badges
+
   attr_accessible :company_id, :event_id, :lunch, :desk, :chair, :table, :trash, :clothesrack, :shelf, :stand_size
-  #validates :lunch, :numericality => {:only_integer => true}
-  
+
   def set_default_lunch
-    self.lunch = "0" unless self.lunch   
+    self.lunch = "0" unless self.lunch
   end
 
    def set_default_desk
@@ -42,6 +41,5 @@ class Companytoevent < ActiveRecord::Base
    def set_default_shelf
     self.shelf = "0" unless self.shelf  
   end
-
 
 end

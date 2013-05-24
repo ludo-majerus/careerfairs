@@ -56,6 +56,14 @@
           <li class="divider-vertical"></li>
 
           <li class="dropdown">
+            <a href="/events" class="dropdown-toggle" data-toggle="dropdown"><%= t(:features)%> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t(:manage_features), companytoevents_list_path %></li>
+            </ul>
+          </li>
+          <li class="divider-vertical"></li>
+
+          <li class="dropdown">
             <a href="/events" class="dropdown-toggle" data-toggle="dropdown"><%= t(:badges)%> <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><%= link_to t(:manage_badges), "#" %></li>
