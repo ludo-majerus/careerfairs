@@ -1,0 +1,47 @@
+<%= render 'formadmin' %>
+
+<div class="container-fluid">
+
+    <legend>Companies's fetaures</legend>
+
+         <div class="row-fluid">
+          <table class="table">
+            <tbody>
+                <tr>
+                  <th>Comagny name</th>
+                  <th>Lunch</th>
+                  <th>Desk</th>
+                  <th>Chair</th>*
+                  <th>Table</th>
+                  <th>Trash</th>
+                  <th>Clothes rack</th>
+                  <th>Shelf</th>
+                </tr>
+
+                <% @companytoevents.each do |companytoevent| %>
+                    <tr>
+                      <td><%= companytoevent.company.name %></td>
+                      <td><%= companytoevent.lunch %></td>
+                      <td><%= companytoevent.desk %></td>
+                      <td><%= companytoevent.chair %></td>
+                      <td><%= companytoevent.table %></td>
+                      <td><%= companytoevent.trash %></td>
+                      <td><%= companytoevent.clothesrack %></td>
+                      <td><%= companytoevent.shelf%></td>
+                    </tr>
+                 <% end %>
+                  <tr  class="success">
+                    <td> Totaux</td>
+                    <td> <%= @sumdesk  %></td>
+                    <td> <%= @sumlunch  %></td>
+                    <td> <%= @sumchair  %></td>
+                    <td> <%= @sumtable %></td>
+                    <td> <%= @sumtrash %></td>
+                    <td> <%= @sumclothesrack  %></td>
+                    <td> <%= @sumshelf  %></td>
+                  </tr>
+            </tbody>
+          </table>
+        </div>
+</div>
+
