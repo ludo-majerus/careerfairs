@@ -38,7 +38,9 @@ class ApplicationController < ActionController::Base
   def detect_c2e
     if session[:company_id].present? and session[:current_event].present?
       c2e = Companytoevent.where("company_id = ? and event_id = ?", session[:current_event], session[:company_id])
-      session[:current_companytoevent_id] = c2e.first.id
+      if c2e.present?
+        session[:current_companytoevent_id] = c2e.first.id
+      end
     end
   end
 

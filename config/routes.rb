@@ -35,5 +35,8 @@ Careerfairs::Application.routes.draw do
   match 'sessions' => 'sessions#create', :via => :post  
   match 'sessions/:contact_id/become' => 'sessions#become#:contact_id', :via => :get, :as => :become_contact
 
+  match 'events/:event_id/companies/:company_id/subscribe' => 'companies#subscribe',  :via => :get, :as => :event_subscribe
+  match 'events/:event_id/companies/:company_id/unsubscribe' => 'companies#unsubscribe',  :via => :get, :as => :event_unsubscribe
+
   root :to => 'events#index'
 end

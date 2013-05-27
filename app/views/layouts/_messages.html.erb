@@ -6,3 +6,10 @@
     </div>
   <% end %>
 <% end %>
+
+<% if params[:notice].is_a?(String) %>
+    <div class="alert alert-notice">
+      <a class="close" data-dismiss="alert">&#215;</a>
+      <%= content_tag :div, params[:notice], :id => "flash_notice" %>
+    </div>
+<% end %>
