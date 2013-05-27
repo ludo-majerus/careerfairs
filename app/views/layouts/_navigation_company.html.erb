@@ -25,7 +25,7 @@
           <li class="divider-vertical"></li>
 
           <!--definit dans le application_helper.erb-->
-          <li><%= link_to "Manage features", companytoevents_path %></li>
+          <li><%= link_to "Manage features", companytoevents_path() %></li>
           <li class="divider-vertical"></li>
 
           <li><%= link_to "Manage Badges", companytoevent_badges_path(session[:current_companytoevent_id]) %></li>

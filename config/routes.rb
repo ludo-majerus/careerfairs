@@ -18,6 +18,8 @@ Careerfairs::Application.routes.draw do
     resources :contacts
   end
 
+
+  match 'companytoevents/list' => 'companytoevents#list', :as => 'companytoevents_list'
   resources :companytoevents
 
   resources :companytoevents do
