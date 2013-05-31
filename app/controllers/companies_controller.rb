@@ -7,8 +7,10 @@ class CompaniesController < ApplicationController
     if params[:search].present?
       @search = Company.search(params[:search])
       @companies = @search.paginate(:page => params[:page], :per_page => 10)   # or @search.relation to lazy load in view // @search.paginate(:page => params[:page])
+    elsif params[:event_id].present?
+      @companies =
     else
-        @companies = Company.paginate(:page => params[:page], :per_page => 10)
+      @companies = Company.where("", params[:event_id]).paginate(:page => params[:page], :per_page => 10)
     end
     @events = Event.where("date_event > ?", DateTime.now)
     @companytoevent = Companytoevent.new
@@ -58,4 +60,30 @@ class CompaniesController < ApplicationController
 
     redirect_to companies_url
   end
+
+  # SUBSCRIBE /events/1/companies/1/subscribe
+  def subscribe
+    companytoevent = Companytoevent.new
+    companytoevent.event_id = params[:event_id]
+    companytoevent.company_id = params[:company_id]
+    if companytoevent.save
+      redirect_to event_companies_url params[:event_id], notice: 'Company was successfully subscribed.'
+    else
+      redirect_to event_companies_url params[:event_id], notice: 'Company was not successfully subscribed.'
+    end
+  end
+
+  # UNSUBSCRIBE /events/1/companies/1/unsubscribe
+  def unsubscribe
+    companytoeventlist = Companytoevent.where("company_id = ? and event_id = ?", params[:company_id], params[:event_id])
+    companytoevent = companytoeventlist.first
+
+    if companytoevent.destroy
+      redirect_to event_companies_url params[:event_id], notice: 'Company was successfully unsubscribed.'
+    else
+      redirect_to event_companies_url params[:event_id], notice: 'Company was not successfully unsubscribed.'
+    end
+  end
+
 end
+

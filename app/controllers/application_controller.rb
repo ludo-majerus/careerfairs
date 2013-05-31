@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 	protect_from_forgery
 
-	before_filter :set_locale, :select_event, :list_events
+	before_filter :set_locale, :select_event, :list_events, :detect_c2e
 
 	def set_locale
 		I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
@@ -33,6 +33,16 @@ class ApplicationController < ActionController::Base
 		else
 			session[:company_id] = Contact.find(session[:current_user_authenticated]).company_id
 		end
-	end
+  end
+
+  def detect_c2e
+    if session[:company_id].present? and session[:current_event].present?
+      c2e = Companytoevent.where("company_id = ? and event_id = ?", session[:current_event], session[:company_id])
+      if c2e.present?
+        session[:current_companytoevent_id] = c2e.first.id
+      end
+    end
+  end
+
 
 end

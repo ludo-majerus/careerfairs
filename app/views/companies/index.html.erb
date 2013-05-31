@@ -26,14 +26,10 @@
             <% @events.each do |event| %>
                 <% if event.in? company.events %>
                     <span class="label label-success">Event <%= event.event_name %> </span>
-                    <%= link_to 'unsubscribe', Companytoevent.find_by_company_id_and_event_id(company.id, event.id), method: :delete, :class => 'btn-small btn-danger' %>
+                    <%= link_to 'unsubscribe', event_unsubscribe_url(event.id,company.id), :class => 'btn-small btn-danger' %>
                 <% else %>
                     <span class="label label-important">Event <%= event.event_name %> </span>
-                    <%= form_tag @companytoevent, :method => :post, :class => 'form-horizontal' do %>
-                        <%= hidden_field_tag 'company_id', company.id %>
-                        <%= hidden_field_tag 'event_id', event.id %>
-                        <%= submit_tag "subscribe", :class => 'btn-small btn-danger' %>
-                    <% end %>
+                    <%= link_to 'subscribe', event_subscribe_url(event.id,company.id), :class => 'btn-small btn-success' %>
                 <% end %>
                 <br/>
             <% end %>

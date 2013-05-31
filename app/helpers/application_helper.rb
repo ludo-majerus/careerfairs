@@ -11,11 +11,5 @@ module ApplicationHelper
     HTML
     html.html_safe
   end
-
-
-  def keys_companyid_and_eventid
-    #@keys = Companytoevent.where("company_id = ? and event_id = ?", Contact.find(session[:current_user_authenticated]).company_id, session[:current_event]).first.id
-    @key = 1
-  end
   
 end
