@@ -28,7 +28,7 @@ class GuestsController < ApplicationController
     
   def validGuest
     begin
-      @guest = Guest.find(params[:ida])
+      @guest = Guest.find(params[:id])
       @guest.status = 1 
       respond_to do |format|
         @guest.save
