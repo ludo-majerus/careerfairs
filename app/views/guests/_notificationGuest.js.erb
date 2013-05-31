@@ -1,0 +1,12 @@
+$("#infoCand").html("<%= escape_javascript(render :partial => 'guests/info') %>")
+if ($("#messageValid").length > 0)
+{
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();           
+        });
+        $("#guest<%= @guest.id %>").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();           
+        });
+    }, 1000);
+}

@@ -1,6 +1,9 @@
 Careerfairs::Application.routes.draw do
 
   resources :guests
+  match 'guests/:id/validGuest' => "guests#validGuest"
+  match 'guests/:id/refuseGuest' => "guests#refuseGuest"
+  match 'guests/:id/reinitializeGuest' => "guests#reinitializeGuest"
 
   resources :sites
   resources :pages

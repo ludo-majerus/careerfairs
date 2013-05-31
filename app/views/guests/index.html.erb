@@ -1,35 +1,21 @@
 <h1>Listing guests</h1>
-
 <h2>
-Salon : <%= @event.event_name %> 
+	Salon : <%= @event.event_name %> 
 </h2>
-
-<table>
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Email</th>
-    <th>Resume</th>
-    <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @guests.each do |guest| %>
-  <tr>
-    <td><%= guest.firstname %></td>
-    <td><%= guest.lastname %></td>
-    <td><%= guest.email %></td>
-    <td><%= guest.resume %></td>
-    <td><%= guest.status %></td>
-    <td><%= link_to 'Show', guest %></td>
-    <td><%= link_to 'Edit', edit_guest_path(guest) %></td>
-    <td><%= link_to 'Destroy', guest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    
-  </tr>
-<% end %>
-</table>
+<div class="form-horizontal">
+	<div class="control-group">
+	<label class="control-label" for="status">Filter</label>
+	<div class="controls">
+ 		<%=select_tag(:status,options_from_collection_for_select(Guest.status,:first,:last,params[:status]),:class => "input-medium")%>
+ 	 	<input type="hidden" name="idevent" id="idevent" value="<%=@event.id%>">
+ 	 </div>
+ 	</div> 
+</div>
+<div id="infoCand">
+</div>
+<div id="listingCand">
+	<%=  render :partial => 'guests/listing'%> 
+</div>	
 
 <br />
 

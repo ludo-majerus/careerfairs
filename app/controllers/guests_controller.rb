@@ -1,12 +1,17 @@
 class GuestsController < ApplicationController
+  before_filter :require_admin_right, :except => [:new]
   # GET /guests
   # GET /guests.json
   def index
-    @guests = Guest.all(:conditions => { :event_id => params[:event_id]})
+    if params[:status].present?
+      @guests = Guest.all(:conditions => { :event_id => params[:event_id],:status => params[:status]})
+    else
+      @guests = Guest.all(:conditions => { :event_id => params[:event_id],:status => 0 })
+    end  
     @event = Event.find(params[:event_id])
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @guests }
+      format.js {}
     end
   end
 
@@ -17,9 +22,52 @@ class GuestsController < ApplicationController
     @event = Event.find(@guest.event_id) 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @guest }
+      format.json {}
     end
   end
+    
+  def validGuest
+    begin
+      @guest = Guest.find(params[:ida])
+      @guest.status = 1 
+      respond_to do |format|
+        @guest.save
+        format.js {}
+      end
+    rescue
+      @guest = Guest.new
+      @guest.errors[:base] << "Y a une couille mec, c'est mort pour toi, pleure"  
+    end
+  end
+  
+  def refuseGuest
+    begin
+      @guest = Guest.find(params[:id])
+      @guest.status = -1 
+      respond_to do |format|
+        @guest.save
+        format.js {}
+      end
+    rescue
+      @guest = Guest.new
+      @guest.errors[:base]<< "Y a une couille mec, c'est mort pour toi, pleure"   
+    end
+  end
+  
+  def reinitializeGuest
+    begin
+      @guest = Guest.find(params[:id])
+      @guest.status = 0 
+      respond_to do |format|
+        @guest.save
+        format.js {}
+      end
+    rescue
+      @guest = Guest.new
+      @guest.errors[:base] << "Y a une couille mec, c'est mort pour toi, pleure"  
+    end
+  end
+  
   
  # GET /guests/new
   # GET /guests/new.json

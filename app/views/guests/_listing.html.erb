@@ -1,0 +1,47 @@
+<%if @guests.count > 0 %>
+	<table class="table .table-condensed">
+	  <tr>
+	    <th>Firstname</th>
+	    <th>Lastname</th>
+	    <th>Email</th>
+	    <th>Resume</th>
+	    <th>Status</th>
+	    <th></th>
+	  </tr>
+	
+	<% @guests.each do |guest| %>
+	  <tr id="guest<%= guest.id %>">
+	    <td><%= guest.firstname %></td>
+	    <td><%= guest.lastname %></td>
+	    <td><%= guest.email %></td>
+	    <td><%= guest.resume %></td>
+	    <td><%= Guest.status[guest.status.to_i] %></td>
+	    <td>
+	    	<span>
+	    	<div class="form-actions">
+	    	<%if params[:status] != "1" %>	
+		    	<%= link_to ("/guests/#{guest.id}/validGuest"), remote:true , :class=>"btn btn-success btn-small" do %>
+		    	 	<i class="icon-white icon-ok"></i>
+				<% end %>
+			<% end %>	
+			<%if params[:status] != "-1" %>	
+		    	<%= link_to ("/guests/#{guest.id}/refuseGuest"), remote:true , :class=>"btn btn-danger btn-small" do %>
+		    	 	<i class="icon-white icon-remove"></i>
+				<% end %>
+			<% end %>
+			<%if params[:status] != "0" and params[:status].present? %>	
+				<%= link_to ("/guests/#{guest.id}/reinitializeGuest"), remote:true , :class=>"btn btn-info btn-small" do %>
+		    	 	<i class="icon-white icon-th-large"></i>
+				<% end %>
+			<% end %>	    	
+	    	</span>
+	    </td>
+	  </tr>
+	<% end %>
+	</table>
+<%else%>
+    <div class="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>No result !</strong> No guest here.
+    </div>
+<%end%>

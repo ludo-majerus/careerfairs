@@ -1,0 +1,16 @@
+<% if @guest.errors.any? %>
+	<div class="alert alert-error">
+		<strong>Bad news</strong><span id="messageNoValid">
+		<ul>
+	    <% @guest.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	</div>
+<% else %>
+	<div class="alert alert-success">
+		<button type="button" class="close" data-dismiss="alert">×</button>
+		<strong>Ok </strong><span id="messageValid"> Utilisateur <%= Guest.status[@guest.status.to_i] %></span>
+	</div>
+<%end%>
+
