@@ -36,7 +36,7 @@ class GuestsController < ApplicationController
       end
     rescue
       @guest = Guest.new
-      @guest.errors[:base] << "Y a une couille mec, c'est mort pour toi, pleure"  
+      @guest.errors[:base] << "Y a une couille mec, c'est mort pour toi, pleure !"  
     end
   end
   
@@ -50,7 +50,7 @@ class GuestsController < ApplicationController
       end
     rescue
       @guest = Guest.new
-      @guest.errors[:base]<< "Y a une couille mec, c'est mort pour toi, pleure"   
+      @guest.errors[:base]<< "Y a une couille mec, c'est mort pour toi, pleure !"   
     end
   end
   
@@ -64,7 +64,7 @@ class GuestsController < ApplicationController
       end
     rescue
       @guest = Guest.new
-      @guest.errors[:base] << "Y a une couille mec, c'est mort pour toi, pleure"  
+      @guest.errors[:base] << "Y a une couille mec, c'est mort pour toi, pleure !"  
     end
   end
   
